@@ -422,12 +422,6 @@ ordnung
 p
 q
 r
-recht
-rechte
-rechten
-rechter
-rechtes
-richtig
 rund
 s
 sa
@@ -491,7 +485,6 @@ t
 tag
 tage
 tagen
-tat
 teil
 tel
 tritt
@@ -516,7 +509,6 @@ viel
 viele
 vielem
 vielen
-vielleicht
 vier
 vierte
 vierten
@@ -526,7 +518,6 @@ vom
 von
 vor
 w
-wahr
 wann
 war
 waren

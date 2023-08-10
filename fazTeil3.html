@@ -1,0 +1,2833 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+	<meta name="layout" content="none">
+	<title>F.A.Z.-Bibliotheksportal</title>
+
+	<link rel="stylesheet" media="screen" href="/assets/fazPortal/base_bootstrap-5d02dbb7835a3f42a6364b36b78b9c66.css"/>
+	<link rel="stylesheet" media="screen" href="/assets/jquery-ui/jquery-ui.min-c289ac8125aa72b379a3b695f1cf021c.css"/>
+	<link rel="stylesheet" media="screen" href="/assets/select2/select2-ea6e891f00c5b6d4bd9be8c9ecc557f5.css"/>
+	<link rel="stylesheet" href="/assets/components-c372901a4eec9e79eb6311995a03f9ac.css"/>
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="/assets/fazPortal/base-c5d0f134dea3e57b11b4aca6c3ccb253.css"/>
+	
+	<link rel="stylesheet" href="/assets/fazPortal/fazbib-737ef520f3ad11a330883db3d2dae811.css"/>
+
+	<link type="image/x-icon" rel="shortcut icon" href="/assets/fazPortal/favicon-978eef97e89fe2c29b9f608157493b77.ico"/>
+
+	<script type="text/javascript" src="/assets/jquery-1.11.3.min-e73e73f10b0074aeb269444ce5e3f9b6.js" ></script>
+	<script type="text/javascript" src="/assets/jquery-ui-1.11.2.min-e73cd922c066b00b6d85565aa6f9b6fa.js" ></script>
+	<script type="text/javascript" src="/assets/datepicker-de-a53c0464200bcd2022b7f525d56aaa30.js" ></script>
+	<script type="text/javascript" src="/assets/underscore-min-71eb8e1db7ce3ec04fe038a6250d22ad.js" ></script>
+	<script type="text/javascript" src="/assets/bindWithDelay-ace4f2490369fdb7616b3c8f2b125dc9.js" ></script>
+	<script type="text/javascript" src="/assets/clipboard.min-1e73ca0ebe38fcfce00c5f4d0ac1d30b.js" ></script>
+	<script type="text/javascript" src="/assets/jquery.tablesorter-1efe731a0f6f44235387f5d31bfaf23f.js" ></script>
+	<script type="text/javascript" src="/assets/select2/select2-patched-9166da3ce480999ebaf65594c024dc73.js" ></script>
+	<script type="text/javascript" src="/assets/select2/select2_locale_de-d9057aeab313fd1dbeb646ca2acc2086.js" ></script>
+	<script type="text/javascript" src="/assets/jquery.hashable.min-4098748754ae53d07d25808aeca56b21.js" ></script>
+	<script type="text/javascript" src="/assets/jquery.form-2f803e47105a7526c98a83d5d504833c.js" ></script>
+	<script type="text/javascript" src="/assets/jquery.watermark-6315a98ad2adebe97caede2aef8e890a.js" ></script>
+	<script type="text/javascript" src="/assets/jasty-core-52c52a5e3f683a4bde6ef6aae0d28064.js" ></script>
+	<script type="text/javascript" src="/assets/jasty-std-197b7c75f6f59cbafd5abf356d4f41ad.js" ></script>
+	<script type="text/javascript" src="/assets/jasty/jquery.fileDownload-47735f6160f7abb9d88917321e320858.js" ></script>
+	<script type="text/javascript" src="/assets/jasty/components-92c6e85a12d7741b80491984cc7fe79b.js" ></script>
+	<script type="text/javascript" src="/assets/general-c9d6eac74da613bc81d5c71dfec8e197.js" ></script>
+	<script type="text/javascript" src="/assets/jasty/forms-542fc3905ae45f456c2e00e158f9adc9.js" ></script>
+	<script type="text/javascript" src="/assets/fazPortal/fazPortal-fa6e7c8c6dc9f441953d1dfe6ccef110.js" ></script>
+
+	<link rel="stylesheet" href="/assets/cookieBar-b76b883d320cc52c9c57fee6beef44c9.css"/>
+	<link rel="stylesheet" href="/assets/faz/faz.cookieBar-eab3d98a56125030ff94292fdc804f37.css"/>
+	<script type="text/javascript" src="/assets/jquery.cookiebar-5a13ae140ede0d48614fed3556e34fb4.js" ></script>
+
+	<script type="text/javascript">
+		
+		(function ($) {
+			$(function () {
+				$.cookieBar({
+					message: "<span class=\"cb-text\">Diese Website verwendet Cookies, um die Nutzerfreundlichkeit zu verbessern. Weitere Informationen zu Cookies sowie die Möglichkeit, die Verwendung von Cookies zu widerrufen, finden Sie in unserer <a class='cb-datenschutz' target='_blank' href='http://www.faz.net/datenschutzerklaerung-11228151.html'>Datenschutzerklärung</a>.</span>",
+					acceptButton: true,
+					acceptText: 'OK'
+				});
+			});
+		})(jQuery);
+	</script>
+
+	<script src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	jasty.i18n.downloadMessage = "Die Datei wird heruntergeladen. Bitte schließen Sie die Seite nicht, bevor der Download nicht beendet ist. Dies kann einige Minuten dauern.";
+	jasty.settings.formEngineUrl = "/formEngine/doAction";
+</script>
+
+
+<div class="faz-container ">
+	<div class="faz-header clearfix">
+
+		<div class="logo">
+
+			
+
+				
+					<div class="burgerLogo">
+						<img src="/assets/fazPortal/burger_menu-15c719923f05330b82b4550349dfed46.png" alt="menu" class="burgerLogoImg"/>
+
+						<div class="ui-widget-overlay ui-front" style="z-index:15;display: none" id="burgerMenuOverlay"></div>
+					</div>
+				
+
+				
+					<a href="/" title="F.A.Z.-Bibliotheksportal"><div class="logoImg"></div></a>
+				
+
+				<div class="headerPartRight clearfix">
+					
+					
+					
+						<a href="/j_spring_security_logout" class="logout-button no-logo hideMobile">Logout</a>
+					
+				</div>
+
+			
+
+		</div>
+
+	</div>
+
+	
+
+	
+
+
+	
+
+	
+		<form method="post" id="m" class="FazPortalMainMenuForm">
+
+<nav class="navbar burgerMenu burgerMenuNoShow">
+	<ul class="nav navbar-nav faz-menu">
+		
+			
+
+
+
+	
+		<li class="active ">
+			<a rel="nofollow" id="m_c0" href="#">
+				Suche im F.A.Z.-Archiv
+				
+					
+						<i class="fa fa-search hideDesktop pull-right"></i>
+					
+				
+			</a>
+		</li>
+	
+
+	
+		<li class=" ">
+			<a rel="nofollow" id="m_c1" href="#">
+				Suche im FR-Archiv
+				
+					
+						<i class="fa fa-search hideDesktop pull-right"></i>
+					
+				
+			</a>
+		</li>
+	
+
+	
+		<li class=" hideMobile">
+			<a rel="nofollow" id="m_c2" href="#">
+				Seitenarchiv
+				
+			</a>
+		</li>
+	
+
+	
+		<li class=" hideMobile">
+			<a rel="nofollow" id="m_c3" href="#">
+				Nutzerkonto
+				
+			</a>
+		</li>
+	
+
+	
+		<li class=" ">
+			<a rel="nofollow" id="m_c4" href="#">
+				Merkliste
+				
+					
+						<i class="fa fa-bookmark hideDesktop pull-right"></i>
+					
+				
+			</a>
+		</li>
+	
+
+	
+		<li class=" ">
+			<a rel="nofollow" id="m_c5" href="#">
+				Update
+				
+					
+						<div class="burgerMenuImg">
+							<img src="/assets/fazPortal/alarm-733a7c98a111dceedf6acb2b5fd32678.svg" alt="alarm.svg" class="hideDesktop"/>
+						</div>
+					
+				
+			</a>
+		</li>
+	
+
+
+<li class="hideDesktop">
+	<a href="/j_spring_security_logout">
+		Logout <i class="fa fa-key hideDesktop pull-right"></i>
+	</a>
+</li>
+
+
+		
+	</ul>
+</nav></form><script> jQuery(function(){
+jQi('m').jasty("BaseForm", "init", [{"visible":true, "formClass":"BaseForm", "formHash":"", "id":"m"}]);
+jQi('m').jasty("BaseForm", "update", ["rO0ABXNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5GYXpQb3J0YWxNYWluTWVudUZvcm0AAAAAAAAAAQIAAUwACG1lbnVJdGVtdAAkTGNvbS9nZW5pb3MvZmF6UG9ydGFsL0ZhelBvcnRhbE1lbnU7eHIAGWNvbS5nZW5pb3MuamFzdHkuQmFzZUZvcm0AAAAAAAAAAQIAAUwADnJlbmRlcmluZ1N0eWxldAASTGphdmEvbGFuZy9TdHJpbmc7eHIAE2NvbS5qYXN0eS5jb3JlLkZvcm0AAAAAAAAAAQIAAkkAE2xhc3RBc3NpZ25lZENoaWxkSWRMAAZiYXNlSWRxAH4AA3hyABhjb20uamFzdHkuY29yZS5Db21wb25lbnQAAAAAAAAAAQIACFoAB3Zpc2libGVMAAVjbGF6enEAfgADTAAEZGF0YXEAfgADTAAFZGF0YTJxAH4AA0wABWRhdGEzcQB+AANMAA5kYXRhQXR0cmlidXRlc3QAD0xqYXZhL3V0aWwvTWFwO0wABXN0eWxlcQB+AANMAAV0aXRsZXEAfgADeHIAHWNvbS5qYXN0eS5jb3JlLkNvbXBvbmVudFByb3h5AAAAAAAAAAECAAFMAAJpZHEAfgADeHB0AAFtAXBwcHBwcHAAAAAGcQB+AAlwfnIAImNvbS5nZW5pb3MuZmF6UG9ydGFsLkZhelBvcnRhbE1lbnUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AApGQVpfQVJDSElW"]);
+jQi('m_c0').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"FAZ_ARCHIV", "id":"m.c0"}]);
+jQi('m_c1').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"FR_ARCHIV", "id":"m.c1"}]);
+jQi('m_c2').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"PAGES", "id":"m.c2"}]);
+jQi('m_c3').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"ACCOUNT", "id":"m.c3"}]);
+jQi('m_c4').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"WISHLIST", "id":"m.c4"}]);
+jQi('m_c5').jasty("Link", "init", [{"onClick":"menuClicked", "visible":true, "data":"UPDATE", "id":"m.c5"}]);
+jQi('m').jasty("BaseForm", "update", ["rO0ABXNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5GYXpQb3J0YWxNYWluTWVudUZvcm0AAAAAAAAAAQIAAUwACG1lbnVJdGVtdAAkTGNvbS9nZW5pb3MvZmF6UG9ydGFsL0ZhelBvcnRhbE1lbnU7eHIAGWNvbS5nZW5pb3MuamFzdHkuQmFzZUZvcm0AAAAAAAAAAQIAAUwADnJlbmRlcmluZ1N0eWxldAASTGphdmEvbGFuZy9TdHJpbmc7eHIAE2NvbS5qYXN0eS5jb3JlLkZvcm0AAAAAAAAAAQIAAkkAE2xhc3RBc3NpZ25lZENoaWxkSWRMAAZiYXNlSWRxAH4AA3hyABhjb20uamFzdHkuY29yZS5Db21wb25lbnQAAAAAAAAAAQIACFoAB3Zpc2libGVMAAVjbGF6enEAfgADTAAEZGF0YXEAfgADTAAFZGF0YTJxAH4AA0wABWRhdGEzcQB+AANMAA5kYXRhQXR0cmlidXRlc3QAD0xqYXZhL3V0aWwvTWFwO0wABXN0eWxlcQB+AANMAAV0aXRsZXEAfgADeHIAHWNvbS5qYXN0eS5jb3JlLkNvbXBvbmVudFByb3h5AAAAAAAAAAECAAFMAAJpZHEAfgADeHB0AAFtAXBwcHBwcHAAAAAGcQB+AAlwfnIAImNvbS5nZW5pb3MuZmF6UG9ydGFsLkZhelBvcnRhbE1lbnUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AApGQVpfQVJDSElW"]);
+}) </script><script> jQuery(function(){
+jQi('m').jasty("BaseForm", "displayHash", []);
+}) </script>
+	
+	<div class="main-form">
+		<form method="post" id="f" class="FazPortalDocumentForm">
+
+
+
+<a name="start"></a>
+
+<div class="document-links">
+
+	
+		
+
+
+	<br/>
+	<a rel="nofollow" id="f_c0" href="#" class="back-link">
+		Zurück zur Ergebnisseite
+	</a>
+
+	
+
+	<div class="nav-links">
+		
+	</div>
+	<div class="clearfix"></div>
+
+	
+
+</div>
+
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">F.A.Z. Einspruch, 19.04.2023</pre>
+<pre class="docSubHeadline">Prozess in Dresden</pre>
+<pre class="docTitle">Verteidigung erhebt schwere Vorwürfe gegen die Justiz im Fall <em class="hlt1">Lina</em> <em class="hlt1">E</em>.</pre>
+<pre class="text">Im Prozess gegen vier mutmaßliche Gewalttäter aus dem linksradikalen Spektrum haben die Verteidiger der Hauptangeklagten Freispruch gefordert. <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sei öffentlich vorverurteilt worden, heißt es.
+
+Stefan Locke, Dresden
+
+Wie häufig bei diesem Verfahren ist die Stimmung beim Publikum im Hochsicherheitssaal des Oberlandesgerichts Dresden gelöst. Gut drei Dutzend Unterstützer der vier Angeklagten sind am Mittwoch zum Prozess gekommen, und immer wieder werfen sie Küsschen und formen mit ihren Händen Herzchen in Richtung der mutmaßlichen Täter, die durch Sicherheitsglas von der Öffentlichkeit getrennt sind. Dem Eindruck eines Happenings stehen die Vorwürfe entgegen, über die das Gericht anderthalb Jahre verhandelt hat. Es geht unter anderem um die Bildung einer kriminellen Vereinigung, gemeinschaftliche schwere Körperverletzung, Sachbeschädigung und Landfriedensbruch.
+
+Die Angeklagten sollen von Sommer 2018 an zwei Jahre lang in Sachsen und Thüringen Jagd auf Rechtsextreme und solche, die sie dafür hielten, gemacht und dabei 15 Menschen zum Teil schwer verletzt haben. Vor zwei Wochen hatte die Bundesanwaltschaft hohe Haftstrafen gefordert, darunter acht Jahre für die mutmaßliche Rädelsführerin, die 28 Jahre alte Leipziger Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. Ihre drei Mitangeklagten, alles Männer in den Zwanzigern und ebenfalls aus der linken Szene, sollen demnach zwischen zwei Jahre und neun Monate sowie drei Jahre und neun Monate ins Gefängnis.
+
+Die Verteidigung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. wies am Mittwoch in ihrem Plädoyer die Vorwürfe zurück. Es gebe keinerlei Belege für eine kriminelle Vereinigung, die geforderte Strafe sei maßlos und absurd. "Wir sind überzeugt, dass unsere Mandantin in allen Anklagepunkten freizusprechen ist", sagte Ulrich von Klinggräff, einer der Verteidiger von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. Er erhob zugleich schwere Vorwürfe gegen Gericht und Bundesanwaltschaft. Das Verfahren sei nichts anderes als "politische Justiz", ein Beispiel "für die Dienstbarmachung der Justiz zu politischen Zwecken" sowie zur Markierung von politischen Gegnern.
+
+Gewalt kommt nach Darstellung des Anwalts vor allem von Rechts
+
+Die Bundesanwaltschaft setze "in infamer Weise" links und rechts gleich und fabuliere von einer Spirale der Gewalt - anstatt anzuerkennen, dass die Demokratie keinesfalls in gleichem Maße von links wie von rechts bedroht werde, im Gegenteil. Seit Anfang der Neunzigerjahre seien 219 Menschen durch rechtsextreme Übergriffe ums Leben gekommen, mehr als 670 Rechtsradikale seien in Deutschland untergetaucht. Nach den Morden des NSU, von Hanau und Halle sowie dem Mord an Walter Lübcke durch Rechtsextreme noch immer von einer auch durch Linke mit angetriebenen Spirale der Gewalt zu sprechen habe mit seriöser Aufarbeitung nichts zu tun. Vielmehr handele es sich hier um eine "Leugnung der gesellschaftlichen Verhältnisse durch den Generalbundesanwalt".
+
+Zugleich griff von Klinggräff auch den Vorsitzenden Richter, Hans Schlüter-Staats, scharf an. Dieser habe in harten Auseinandersetzungen nicht nur die Verteidigung immer wieder beleidigend angegriffen, sondern auch "eine unfassbare Einseitigkeit bei der Beweiswürdigung" gezeigt. Das Gericht habe "erkennbar kein eigenes Aufklärungsinteresse" gehabt, Beweisanträge der Verteidiger seien nicht berücksichtigt, Beweise nicht kritisch gewürdigt worden. Damit habe sich die Vorverurteilung seiner Mandantin fortgesetzt, sie werde bekämpft wie ein Staatsfeind. Bereits zuvor hatte von Klinggräff der Anklage "feindstrafrechtliche Züge" unterstellt. Die Bundesanwaltschaft sei "in unbedingtem Verfolgungseifer gefangen", sie habe Beweise durch Hypothesen und Fakten durch Geraune ersetzt, lasse jede Objektivität vermissen und betreibe "Rosinenpickerei": Nur was ins Bild passe, werde berücksichtigt.
+
+Für den Fall einer Verurteilung forderte von Klinggräff, strafmildernd zu berücksichtigen, dass <em class="hlt1">Lina</em> <em class="hlt1">E</em>. nicht vorbestraft sei, seit zweieinhalb Jahren in Untersuchungshaft sitze, "bis hinein in die bürgerliche Presse massiv vorverurteilt" worden und zudem schwer an Rheuma erkrankt sei. Bei der Schilderung lachte die Hauptangeklagte, das Publikum spendete ausgiebig Applaus. Das Urteil soll am 10. Mai fallen.
+
+F.A.Z.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>19.04.2023</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c1" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c2" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>F.A.Z. Einspruch, 19.04.2023</td>
+								</tr>
+							
+							
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c3" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZE__fazein_8833152" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi00" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi00">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi10" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi10">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi20" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi20">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi30" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi30">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi40" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi40">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi50" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi50">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_0" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 06.04.2023, Nr. 82, S. 5</pre>
+<pre class="docTitle">Er hatte die falsche Mütze auf</pre>
+<pre class="text">Zwei Jahre lang machten Linksextreme Jagd auf Rechtsextreme - und solche, die sie dafür hielten. "Rädelsführerin" <em class="hlt1">Lina</em> <em class="hlt1">E</em>. soll acht Jahre in Haft.
+
+Von Stefan Locke, Dresden
+
+Es gibt diesen einen Überfall im Januar 2019 auf einen Kanalarbeiter in Leipzig, den die Bundesanwaltschaft in ihrem Plädoyer am Mittwoch vor dem Oberlandesgericht Dresden hervorhebt. Die Tat sei "herausragend im schlechtesten Sinne", die physischen und psychischen Folgen für das Opfer seien verheerend. Der Mann habe einen mehrfachen Schädelbruch erlitten und bis heute eine Metallplatte in der rechten Gesichtshälfte, damit die Augenhöhle nicht herunterrutsche. Zudem müsse er täglich Schmerzmittel nehmen und habe obendrein seine Arbeit verloren - und das nur, weil er "eine falsche Mütze" aufhatte. Diese Mütze mit einem Logo einer bei Rechtsextremen beliebten Kleidungsmarke wurde dem Mann, der damals seinen ersten Tag in der Firma hatte, zum Verhängnis.
+
+Die Anklage ist überzeugt, dass <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und ihre Komplizen den Mann als Mitglied der rechtsextremen Szene, das er jedoch nicht ist, eine Lektion erteilen wollten. E., die als Rädelsführerin einer linksextremen, kriminellen Vereinigung angeklagt ist, soll das Opfer mit ausgesucht und dann herbeieilende Kollegen davon abgehalten haben, dem angegriffenen Mann zu helfen, während ihre Komplizen ihn unter anderem mit Schlagstöcken so verprügelten, dass die Tat "in der Nähe eines versuchten Tötungsdelikts" liege. Wegen dieser und weiterer sechs Taten, bei denen insgesamt 15 Menschen zum Teil schwer verletzt wurden, wird der 28 Jahre alten <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Hessen stammt und in Leipzig studierte, sowie drei Männern, ebenfalls Mittzwanzigern, die aus Leipzig, Berlin und Dresden stammen, seit September 2021 der Prozess gemacht.
+
+Nach 92 Verhandlungstagen ist die Bundesanwaltschaft davon überzeugt, dass alle Angeklagten Mitglieder einer kriminellen Vereinigung gewesen sind. Sie seien geplant vorgegangen, um mittels gemeinsam begangener Straftaten ein übergeordnetes, politisches Ziel zu erreichen, nämlich als militante Antifaschisten gewaltsam Rechtsextremisten zu bekämpfen, sagte Oberstaatsanwältin Alexandra Geilhorn. Zwar seien nicht alle Angeklagten an allen Einzeltaten beteiligt gewesen, doch das spiele keine Rolle. Denn alle vier Angeklagten hätten sich "in einen von gemeinsamen politischen Überzeugungen getragenen Verband" eingefügt. Sie hätten gezielt Überfälle auf Rechtsextreme sowie Menschen, die sie dafür hielten, geplant, trainiert und ausgeführt und dabei "ein außergewöhnliches Maß an krimineller Energie" offenbart. Es sei lediglich dem Zufall geschuldet, dass trotz des gezielten Einsatzes von Gewalt vor allem gegen Kopf und Oberkörper der Opfer nicht noch Schlimmeres passiert sei.
+
+Immer wieder kommt die Anklage auf die einzelnen Taten, die zwischen August 2018 und Sommer 2020 in Sachsen und Thüringen geschahen, zurück und seziert die Tatbeiträge der Angeklagten - sei es bei Überfällen auf Einzelpersonen oder bei der Erstürmung bekannter Treffpunkte von Rechtsextremisten. <em class="hlt1">Lina</em> <em class="hlt1">E</em>. komme dabei eine besondere Rolle zu. Sie habe mehr als zwei Jahre lang einen bestimmenden Einfluss auf die Gruppe gehabt, Trainings koordiniert, Opfer unmittelbar ausgewählt, Tatwerkzeuge besorgt sowie Mittäter für Überfälle gewonnen. "Sie war die treibende und steuernde Kraft der Gruppe" und habe "gesteigerte kriminelle Energie" bewiesen, sagte Geilhorn. Man habe es hier "mit einem besonders schweren Fall von Rädelsführerschaft" zu tun, weshalb die Anklage für die nicht vorbestrafte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. eine Freiheitsstrafe von acht Jahren forderte.
+
+Für die drei Männer auf der Anklagebank, von denen zwei nicht vorbestraft sind, beantragte die Bundesanwaltschaft Freiheitsstrafen zwischen zwei Jahren und neun Monaten sowie drei Jahren und neun Monaten insbesondere wegen Mitgliedschaft in einer kriminellen Vereinigung, gemeinschaftlicher schwerer Körperverletzung, Sachbeschädigung und Landfriedensbruchs. Im Saal, wo Verwandte und Bekannte der Angeklagten jeden Prozesstag verfolgen, wurde jedes Strafmaß mit Empörung und abschätzigen Bemerkungen quittiert. Oberstaatsanwältin Geilhorn forderte zudem, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. wegen "sehr hoher Fluchtgefahr" weiter in Untersuchungshaft zu behalten. Es gebe ein nach wie vor breites Unterstützer-Umfeld, dass die Taten der Angeklagten gutheiße und zu weiteren Taten aufrufe. So gebe es innerhalb der linksextremen Szene einen Aufruf, für jedes Jahr Freiheitsstrafe, zu dem die Angeklagten verurteilt werden, Sachschäden in Höhe von einer Million Euro zu verursachen.
+
+Mitte April wird die Verteidigung, die von einem "konstruierten Vorwurf" sowie einem "politisierten Verfahren" spricht, ihre Schlussvorträge halten. Das Urteil wird Mitte Mai erwartet.</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docImage">Bildunterschrift: "Treibende Kraft": <em class="hlt1">Lina</em> <em class="hlt1">E</em>. 2020 auf dem Weg zum BGH in Karlsruhe
+
+Foto EPA</pre>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>06.04.2023</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c4" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c5" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 06.04.2023, Nr. 82, S. 5</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c6" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD12023040650002968890771" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c7" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c8" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi01" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi01">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi11" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi11">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi21" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi21">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi31" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi31">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi41" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi41">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_1" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 06.04.2023, Nr. 82, S. 1</pre>
+<pre class="docTitle">Linksextreme Angeklagte soll acht Jahre in Haft</pre>
+<pre class="text">lock. DRESDEN. Im Prozess gegen drei Männer und eine Frau aus der linksextremen Szene Leipzigs hat die Bundesanwaltschaft am Mittwoch acht Jahre Haft für die Hauptangeklagte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. gefordert. Bei ihr handele es sich "um einen besonders schweren Fall von Rädelsführerschaft", erklärte die Anklagebehörde vor dem Oberlandesgericht Dresden. Auch für die Mitangeklagten forderte sie mehrjährige Haftstrafen. Die Angeklagten sollen in Mitteldeutschland zwei Jahre lang gezielt Rechtsextremisten und solche, die sie dafür hielten, überfallen und teils schwer verletzt haben. (Siehe Seite 5.)</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>06.04.2023</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c9" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c10" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 06.04.2023, Nr. 82, S. 1</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c11" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD12023040650002969476141" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c12" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c13" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi02" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi02">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi12" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi12">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_2" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 05.04.2023</pre>
+<pre class="docSubHeadline">Linksextremer Überfall</pre>
+<pre class="docTitle">Er hatte die falsche Mütze auf</pre>
+<pre class="docBoxTeaser">Von Stefan Locke, Dresden</pre>
+<pre class="bold">Zwei Jahre lang machten Linksextreme in Leipzig Jagd auf Rechtsextreme - und solche, die sie dafür hielten. Die Bundesanwaltschaft fordert für "Rädelsführerin" <em class="hlt1">Lina</em> <em class="hlt1">E</em>. nun acht Jahre Gefängnis.</pre>
+<pre class="text">Es gibt diesen einen Überfall im Januar 2019 auf einen Kanalarbeiter in Leipzig, den die Bundesanwaltschaft in ihrem Plädoyer am Mittwoch vor dem Oberlandesgericht Dresden hervorhebt. Die Tat sei "herausragend im schlechtesten Sinne", die physischen und psychischen Folgen für das Opfer seien verheerend. Der Mann habe einen mehrfachen Schädelbruch erlitten und bis heute eine Metallplatte in der rechten Gesichtshälfte, damit die Augenhöhle nicht herunterrutsche. Zudem müsse er täglich Schmerzmittel nehmen und habe obendrein seine Arbeit verloren - und das nur, weil er "eine falsche Mütze" aufhatte. Diese Mütze mit einem Logo einer bei Rechtsextremen beliebten Kleidungsmarke wurde dem Mann, der damals seinen ersten Tag in der Firma hatte, zum Verhängnis.
+
+Die Anklage ist überzeugt, dass <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und ihre Komplizen den Mann als Mitglied der rechtsextremen Szene, das er jedoch nicht ist, eine Lektion erteilen wollten. E., die als Rädelsführerin einer linksextremen, kriminellen Vereinigung angeklagt ist, soll das Opfer mit ausgesucht und dann herbeieilende Kollegen davon abgehalten haben, dem Mann zu helfen, während ihre Komplizen ihn unter anderem mit Schlagstöcken so verprügelten, dass die Tat "in der Nähe eines versuchten Tötungsdelikts" liege. Wegen dieser und weiterer sechs Taten, bei denen insgesamt 15 Menschen zum Teil schwer verletzt wurden, wird der 28 Jahre alten <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Hessen stammt und in Leipzig studierte, sowie drei Männern, ebenfalls Mittzwanzigern, die aus Leipzig, Berlin und Dresden stammen, seit September 2021 der Prozess gemacht.
+
+Nach 92 Verhandlungstagen ist die Bundesanwaltschaft davon überzeugt, dass alle Angeklagten Mitglieder einer kriminellen Vereinigung gewesen sind. Sie seien geplant vorgegangen, um mittels gemeinsam begangener Straftaten ein übergeordnetes, politisches Ziel zu erreichen, nämlich als militante Antifaschisten gewaltsam Rechtsextremisten zu bekämpfen, sagte Oberstaatsanwältin Alexandra Geilhorn.
+
+Abschätzige Bemerkungen von Angehörigen im Saal
+
+Zwar seien nicht alle Angeklagten an allen Einzeltaten beteiligt gewesen, doch das spiele keine Rolle. Denn alle vier Angeklagten hätten sich "in einen von gemeinsamen politischen Überzeugungen getragenen Verband" eingefügt. Sie hätten gezielt Überfälle auf Rechtsextreme sowie Menschen, die sie dafür hielten, geplant, trainiert und ausgeführt und dabei "ein außergewöhnliches Maß an krimineller Energie" offenbart. Es sei lediglich dem Zufall geschuldet, dass trotz des gezielten Einsatzes von Gewalt vor allem gegen Kopf und Oberkörper der Opfer nicht noch Schlimmeres passiert sei.
+
+Immer wieder kommt die Anklage auf die einzelnen Taten, die zwischen August 2018 und Sommer 2020 in Sachsen und Thüringen geschahen, zurück und seziert die Tatbeiträge der Angeklagten - sei es bei Überfällen auf Einzelpersonen oder bei der Erstürmung bekannter Treffpunkte von Rechtsextremisten.
+
+<em class="hlt1">Lina</em> <em class="hlt1">E</em>. komme dabei eine besondere Rolle zu. Sie habe mehr als zwei Jahre lang einen bestimmenden und prägenden Einfluss auf die Gruppe gehabt, Trainings koordiniert, Opfer unmittelbar ausgewählt, Tatwerkzeuge besorgt sowie Mittäter für Überfälle gewonnen. "Sie war die treibende und steuernde Kraft der Gruppe" und habe "gesteigerte kriminelle Energie" bewiesen, sagte Geilhorn. Man habe es hier "mit einem besonders schweren Fall von Rädelsführerschaft" zu tun, weshalb die Anklage für die nicht vorbestrafte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. eine Freiheitsstrafe von acht Jahren forderte.
+
+Für die drei Männer auf der Anklagebank, von denen zwei nicht vorbestraft sind, beantragte die Bundesanwaltschaft Freiheitsstrafen zwischen zwei Jahren und neun Monaten sowie drei Jahren und neun Monaten insbesondere wegen Mitgliedschaft in einer kriminellen Vereinigung, gemeinschaftlicher schwerer Körperverletzung, Sachbeschädigung und Landfriedensbruchs. Im Saal, wo Verwandte und Bekannte der Angeklagten jeden Prozesstag verfolgen, wurde jedes Strafmaß mit Empörung und abschätzigen Bemerkungen quittiert. Oberstaatsanwältin Geilhorn forderte zudem, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. wegen "sehr hoher Fluchtgefahr" weiter in Untersuchungshaft zu behalten. Es gebe ein nach wie vor breites Unterstützer-Umfeld, dass die Taten der Angeklagten gutheiße und zu weiteren Taten aufrufe. So gebe es innerhalb der linksextremen Szene einen Aufruf, für jedes Jahr Freiheitsstrafe, zu dem die Angeklagten verurteilt werden, Sachschäden in Höhe von einer Million Euro zu verursachen.
+
+Mitte April wird die Verteidigung, die von einem "konstruierten Vorwurf" sowie einem "politisierten Verfahren" spricht, ihre Schlussvorträge halten. Das Urteil wird Mitte Mai erwartet.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>05.04.2023</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c14" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c15" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 05.04.2023</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c16" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20230405_8802736" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">F.A.Z. Einspruch, 05.04.2023</pre>
+<pre class="docSubHeadline">Linksextremer Überfall</pre>
+<pre class="docTitle">Er hatte die falsche Mütze auf</pre>
+<pre class="text">Zwei Jahre lang machten Linksextreme in Leipzig Jagd auf Rechtsextreme - und solche, die sie dafür hielten. Die Bundesanwaltschaft fordert für "Rädelsführerin" <em class="hlt1">Lina</em> <em class="hlt1">E</em>. nun acht Jahre Gefängnis.
+
+Stefan Locke, Dresden
+
+Es gibt diesen einen Überfall im Januar 2019 auf einen Kanalarbeiter in Leipzig, den die Bundesanwaltschaft in ihrem Plädoyer am Mittwoch vor dem Oberlandesgericht Dresden hervorhebt. Die Tat sei "herausragend im schlechtesten Sinne", die physischen und psychischen Folgen für das Opfer seien verheerend. Der Mann habe einen mehrfachen Schädelbruch erlitten und bis heute eine Metallplatte in der rechten Gesichtshälfte, damit die Augenhöhle nicht herunterrutsche. Zudem müsse er täglich Schmerzmittel nehmen und habe obendrein seine Arbeit verloren - und das nur, weil er "eine falsche Mütze" aufhatte. Diese Mütze mit einem Logo einer bei Rechtsextremen beliebten Kleidungsmarke wurde dem Mann, der damals seinen ersten Tag in der Firma hatte, zum Verhängnis.
+
+Die Anklage ist überzeugt, dass <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und ihre Komplizen den Mann als Mitglied der rechtsextremen Szene, das er jedoch nicht ist, eine Lektion erteilen wollten. E., die als Rädelsführerin einer linksextremen, kriminellen Vereinigung angeklagt ist, soll das Opfer mit ausgesucht und dann herbeieilende Kollegen davon abgehalten haben, dem Mann zu helfen, während ihre Komplizen ihn unter anderem mit Schlagstöcken so verprügelten, dass die Tat "in der Nähe eines versuchten Tötungsdelikts" liege. Wegen dieser und weiterer sechs Taten, bei denen insgesamt 15 Menschen zum Teil schwer verletzt wurden, wird der 28 Jahre alten <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Hessen stammt und in Leipzig studierte, sowie drei Männern, ebenfalls Mittzwanzigern, die aus Leipzig, Berlin und Dresden stammen, seit September 2021 der Prozess gemacht.
+
+Nach 92 Verhandlungstagen ist die Bundesanwaltschaft davon überzeugt, dass alle Angeklagten Mitglieder einer kriminellen Vereinigung gewesen sind. Sie seien geplant vorgegangen, um mittels gemeinsam begangener Straftaten ein übergeordnetes, politisches Ziel zu erreichen, nämlich als militante Antifaschisten gewaltsam Rechtsextremisten zu bekämpfen, sagte Oberstaatsanwältin Alexandra Geilhorn.
+
+Abschätzige Bemerkungen von Angehörigen im Saal
+
+Zwar seien nicht alle Angeklagten an allen Einzeltaten beteiligt gewesen, doch das spiele keine Rolle. Denn alle vier Angeklagten hätten sich "in einen von gemeinsamen politischen Überzeugungen getragenen Verband" eingefügt. Sie hätten gezielt Überfälle auf Rechtsextreme sowie Menschen, die sie dafür hielten, geplant, trainiert und ausgeführt und dabei "ein außergewöhnliches Maß an krimineller Energie" offenbart. Es sei lediglich dem Zufall geschuldet, dass trotz des gezielten Einsatzes von Gewalt vor allem gegen Kopf und Oberkörper der Opfer nicht noch Schlimmeres passiert sei.
+
+Immer wieder kommt die Anklage auf die einzelnen Taten, die zwischen August 2018 und Sommer 2020 in Sachsen und Thüringen geschahen, zurück und seziert die Tatbeiträge der Angeklagten - sei es bei Überfällen auf Einzelpersonen oder bei der Erstürmung bekannter Treffpunkte von Rechtsextremisten.
+
+(======================= Linkliste =======================)
+
+<em class="hlt1">Lina</em> <em class="hlt1">E</em>. komme dabei eine besondere Rolle zu. Sie habe mehr als zwei Jahre lang einen bestimmenden und prägenden Einfluss auf die Gruppe gehabt, Trainings koordiniert, Opfer unmittelbar ausgewählt, Tatwerkzeuge besorgt sowie Mittäter für Überfälle gewonnen. "Sie war die treibende und steuernde Kraft der Gruppe" und habe "gesteigerte kriminelle Energie" bewiesen, sagte Geilhorn. Man habe es hier "mit einem besonders schweren Fall von Rädelsführerschaft" zu tun, weshalb die Anklage für die nicht vorbestrafte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. eine Freiheitsstrafe von acht Jahren forderte.
+
+Für die drei Männer auf der Anklagebank, von denen zwei nicht vorbestraft sind, beantragte die Bundesanwaltschaft Freiheitsstrafen zwischen zwei Jahren und neun Monaten sowie drei Jahren und neun Monaten insbesondere wegen Mitgliedschaft in einer kriminellen Vereinigung, gemeinschaftlicher schwerer Körperverletzung, Sachbeschädigung und Landfriedensbruchs. Im Saal, wo Verwandte und Bekannte der Angeklagten jeden Prozesstag verfolgen, wurde jedes Strafmaß mit Empörung und abschätzigen Bemerkungen quittiert. Oberstaatsanwältin Geilhorn forderte zudem, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. wegen "sehr hoher Fluchtgefahr" weiter in Untersuchungshaft zu behalten. Es gebe ein nach wie vor breites Unterstützer-Umfeld, dass die Taten der Angeklagten gutheiße und zu weiteren Taten aufrufe. So gebe es innerhalb der linksextremen Szene einen Aufruf, für jedes Jahr Freiheitsstrafe, zu dem die Angeklagten verurteilt werden, Sachschäden in Höhe von einer Million Euro zu verursachen.
+
+Mitte April wird die Verteidigung, die von einem "konstruierten Vorwurf" sowie einem "politisierten Verfahren" spricht, ihre Schlussvorträge halten. Das Urteil wird Mitte Mai erwartet.
+
+F.A.Z.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>05.04.2023</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c17" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c18" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>F.A.Z. Einspruch, 05.04.2023</td>
+								</tr>
+							
+							
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c19" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZE__fazein_8802736" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi04" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi04">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi14" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi14">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi24" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi24">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi34" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi34">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi44" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi44">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi54" type="checkbox" value="&quot;Linksradikalismus&quot;.DE."/>
+												<label  for="f_simi54">Linksradikalismus</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi64" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi64">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_4" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 09.11.2022, Nr. 261, S. 4</pre>
+<pre class="docTitle">Mehrere Anschläge in Leipzig</pre>
+<pre class="docBoxTeaser">Innenminister vermutet Linksextremisten dahinter</pre>
+<pre class="text">lock. DRESDEN. In Leipzig hat es am frühen Dienstagmorgen einen Brandanschlag auf dem Firmengelände des Immobilienunternehmens Vonovia gegeben. Dabei sind etwa ein Dutzend Lieferwagen und Transporter zum Teil vollständig ausgebrannt. Die Ermittler hätten erste Spuren gesichert sowie mit einem Polizeihubschrauber und mit Hilfe der Bundespolizei nach den Tätern gefahndet, teilte das Landeskriminalamt mit. Nach bisherigen Erkenntnissen gehe man von vorsätzlicher Brandstiftung aus. Es sei "erheblicher Sachschaden" entstanden, die genaue Höhe werde noch ermittelt.
+
+Weil die Firma in Leipzig nicht zum ersten Mal von Brandanschlägen betroffen ist, habe das Polizeiliche Terrorismus- und Extremismusabwehrzentrum die Ermittlungen übernommen. "Daran können Sie bereits erkennen, wie wir über die Sache denken", sagte Sachsens Innenminister Armin Schuster (CDU) am Dienstag in Dresden. "Hier eine politische Motivation nicht auszuschließen zu wollen, wäre eine untertriebene Formulierung." Die Täter vermutet Schuster in der Leipziger linksextremen Szene, die in der Vergangenheit immer wieder ähnlich Anschläge begangen hat. Nach Monaten relativer Ruhe scheinen sich diese Straftaten wieder zu häufen. Erst in der vergangenen Woche gingen auf einer Baustelle in Leipzig zwei Bagger einer Baufirma aus Ostsachsen in Flammen auf, die ebenfalls schon häufiger Ziel linksextremistischer Anschläge war. Den Schaden bezifferten die Ermittler auf 375 000 Euro. Anfang November hatten sich mutmaßlich Linksextremisten auf der Internetplattform "Indymedia" zu Anschlägen auf zwei Leipziger Firmen bekannt, die unter anderem Sicherheitstechnik für Haftanstalten liefern. "Unsere Herzen brennen für alle Rebell*innen in den Verließen des Staates, die ihren Kampf weiterführen", hieß es darin.
+
+Womöglich sei die Hoffnung verfrüht gewesen, dass sich der Fokus der linksextremen Szene seit dem Prozess gegen vier ihrer Protagonisten nicht mehr so stark auf Leipzig konzentriere, sagte Schuster. Das Oberlandesgericht Dresden verhandelt seit einem Jahr gegen die mutmaßliche Rädelsführerin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sowie drei Männer, denen die Bildung einer linksextremen kriminellen Vereinigung vorgeworfen wird. Sie sollen politisch Andersdenkende und solche, die sie dafür hielten, überfallen und mehrere Personen schwer verletzt haben.</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>09.11.2022</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c20" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c21" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 09.11.2022, Nr. 261, S. 4</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c22" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD12022110950002352550345" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c23" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c24" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi05" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi05">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi15" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi15">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi25" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi25">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi35" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi35">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi45" type="checkbox" value="&quot;Brandstiftung&quot;.DE."/>
+												<label  for="f_simi45">Brandstiftung</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_5" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 08.11.2022</pre>
+<pre class="docSubHeadline">Angriff auf Firmengebäude</pre>
+<pre class="docTitle">Sachsens Innenminister vermutet Linksextremisten hinter Brandanschlag</pre>
+<pre class="docBoxTeaser">Von Stefan Locke, Dresden</pre>
+<pre class="bold">Nach Monaten relativer Ruhe häufen sich in Leipzig Anschläge auf Firmen. Sachsens Innenminister Schuster vermutet auch hinter dem jüngsten Angriff politische Motive.</pre>
+<pre class="text">In Leipzig hat es am frühen Dienstagmorgen einen Brandanschlag auf dem Firmengelände des Immobilienunternehmens Vonovia gegeben. Dabei sind etwa ein Dutzend Lieferwagen und Transporter zum Teil vollständig ausgebrannt. Die Ermittler hätten erste Spuren gesichert sowie mit einem Polizeihubschrauber und mit Hilfe der Bundespolizei nach den Tätern gefahndet, teilte das Landeskriminalamt mit. Nach bisherigen Erkenntnissen gehe man von vorsätzlicher Brandstiftung aus. Es sei "erheblicher Sachschaden" entstanden, die genaue Höhe werde noch ermittelt.
+
+Weil die Firma in Leipzig nicht zum ersten Mal von Brandanschlägen betroffen ist, habe das Polizeiliche Terrorismus- und Extremismusabwehrzentrum die Ermittlungen übernommen. "Daran können Sie bereits erkennen, wie wir über die Sache denken", sagte Sachsens Innenminister Armin Schuster (CDU) am Dienstag in Dresden. "Hier eine politische Motivation nicht auszuschließen zu wollen, wäre eine untertriebene Formulierung." Die Täter vermutet Schuster in der Leipziger linksextremen Szene, die in der Vergangenheit immer wieder ähnlich Anschläge begangen hat. Nach Monaten relativer Ruhe scheinen sich diese Straftaten wieder zu häufen.
+
+Erst in der vergangenen Woche gingen auf einer Baustelle in Leipzig zwei Bagger einer Baufirma aus Ostsachsen in Flammen auf, die ebenfalls schon häufiger Ziel linksextremistischer Anschläge war. Den Schaden bezifferten die Ermittler auf 375.000 Euro. Anfang November hatten sich mutmaßlich Linksextremisten auf der Internetplattform "Indymedia" zu Anschlägen auf zwei Leipziger Firmen bekannt, die unter anderem Sicherheitstechnik für Haftanstalten liefern. "Unsere Herzen brennen für alle Rebell*innen in den Verliesen des Staates, die ihren Kampf weiterführen", hieß es darin.
+
+Womöglich sei die Hoffnung verfrüht gewesen, dass sich der Fokus der linksextremen Szene seit dem Prozess gegen vier ihrer Protagonisten nicht mehr so stark auf Leipzig konzentriere, sagte Schuster. Das Oberlandesgericht Dresden verhandelt seit einem Jahr gegen die mutmaßliche Rädelsführerin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sowie drei Männer, denen die Bildung einer linksextremen kriminellen Vereinigung vorgeworfen wird. Sie sollen politisch Andersdenkende und solche, die sie dafür hielten, überfallen und mehrere Personen schwer verletzt haben.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>08.11.2022</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c25" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c26" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 08.11.2022</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c27" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20221108_8445861" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 29.07.2022</pre>
+<pre class="docSubHeadline">Prozess gegen Linksextreme</pre>
+<pre class="docTitle">Kommt mit dem Kronzeugen die Wende?</pre>
+<pre class="docBoxTeaser">Von Stefan Locke, Dresden</pre>
+<pre class="bold">Seit Monaten schleppt sich der Prozess gegen vier Linksextremisten um die Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. dahin, die Neonazis jagten. Jetzt sagt ein einstiger Mitstreiter aus - und belastet die Angeklagten schwer.</pre>
+<pre class="text">Eigentlich sollte im Prozess gegen mutmaßliche Linksextremisten um die Leipziger Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. in diesen Tagen das Urteil gesprochen werden. Der Generalbundesanwalt hat E. sowie drei Männer wegen Mitgliedschaft in einer kriminellen Vereinigung angeklagt; sie sollen unter dem Kommando von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zwischen 2018 und 2020 in Thüringen und Sachsen Angriffe auf vermeintliche und tatsächliche Rechtsextremisten begangen und dabei mehrere Personen zum Teil schwer verletzt haben.
+
+Bisher schleppte sich das im September 2021 begonnene Verfahren dahin, die Angeklagten verweigerten die Aussage, und Zeugen hatten wenig Handfestes zu bieten. Doch am Donnerstag gab es eine spektakuläre Entwicklung, als die Anklage eine Art Kronzeugen aufbot.
+
+Scharmützel mit dem Vorsitzenden Richter
+
+Johannes D., 30 Jahre alt, betrat unter schwerem Polizeischutz den Saal 1 des Oberlandesgerichts Dresden. Vor dem Gebäude hatten sich wie stets an Prozesstagen Vertreter der linken Szene eingefunden, um ihre Unterstützung für die Angeklagten zu bekunden. Die zahlreich vertretene Polizei sah dabei großzügig über Schmähplakate wie ACAB (auf Deutsch etwa "Alle Bullen sind Schweine") hinweg.
+
+Drinnen spendeten Sympathisanten den Angeklagten Beifall. Deren Anwälte wiederum lieferten sich längst zur Tagesordnung gehörende Scharmützel mit dem Vorsitzenden Richter des Staatsschutzsenats, Hans Schlüter-Staats. Immer wieder unterbrachen sie mit Zwischenrufen die Verhandlung, wobei ihre Angriffslust oft mit übergroßer Empfindlichkeit einherging, wenn der Richter seinerseits für Ordnung sorgte.
+
+Als er am Donnerstag einem besonders penetranten Verteidiger wegen wiederholter Störung ermahnte, reagierte dieser aufs Äußerste empört. Womöglich lag das auch an D., der dem Verfahren eine Wendung geben könnte. Ausführlich berichtete der Zeuge unter anderem, wie er an der Planung und Ausführung eines Überfalls auf ein von Neonazis frequentiertes Lokal in Eisenach beteiligt war. Und er nannte Namen, auch der Angeklagten.
+
+Seine Aufgabe sei es gewesen, die Rechtsextremisten auszuspähen sowie zu melden, wann diese das Lokal verließen, sagte D. Die Angriffe sollten bei den Opfern "einen nachhaltigen Schaden hinterlassen, sie aber nicht töten".
+
+"Ich will ein vernünftiges, gerades Leben führen"
+
+Der selbst vorbestrafte Zeuge bezeichnete sich am Donnerstag als Aussteiger aus der linken Szene. Er sei im Sommer 2021 nach Warschau gezogen, um dort in einem Kindergarten als Gruppenleiter zu arbeiten. Seine einstigen "Mitstreiter" hätten ihn jedoch immer wieder kontaktiert, auch um zu erkunden, ob er noch "auf Linie" sei. Er sei nicht darauf eingegangen, die linke Szene habe sich von ihm abgewandt.
+
+Bald darauf aber tauchten im Internet mutmaßlich aus der Szene gesteuerte Einträge auf, die ihn sexueller Übergriffe bezichtigten, woraufhin er, auch auf Druck von Eltern, seinen Kita-Job wieder verlor. Die Vorwürfe seien unberechtigt, sagte D. "Ich will ein vernünftiges, gerades Leben führen." Auch deshalb habe er sich entschlossen, reinen Tisch zu machen. Danach rückten die Ermittler im Juni abermals zu Hausdurchsuchungen in Leipzig aus, die in der Szene erheblich Staub aufwirbelten.
+
+Für die Anklage sei der Mann ein Glücksfall, für die linke Szene ein Albtraum, heißt es unter Prozessbeobachtern. Die Verteidigung ist äußerst nervös. Gleich zu Beginn des Prozesstages griffen mehrere Anwälte einen akkreditierten Fotografen der Deutschen Presse-Agentur verbal an und versuchten, ihn an der Ausübung seiner Tätigkeit zu hindern. Zeuge D. wiederum befindet sich mittlerweile im Zeugenschutzprogramm. Das Gericht hat nun weitere Prozesstermine bis in den Herbst geplant.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>29.07.2022</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c28" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c29" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 29.07.2022</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c30" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20220729_8206112" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 29.07.2022, Nr. 174, S. 4</pre>
+<pre class="docTitle">Albtraum für die Szene</pre>
+<pre class="docBoxTeaser">Kronzeuge sagt gegen Linksextremisten aus</pre>
+<pre class="text">Von Stefan Locke, Dresden
+
+Eigentlich sollte im Prozess gegen mutmaßliche Linksextremisten um die Leipziger Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. in diesen Tagen das Urteil gesprochen werden. Der Generalbundesanwalt hat E. sowie drei Männer wegen Mitgliedschaft in einer kriminellen Vereinigung angeklagt; sie sollen unter dem Kommando von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zwischen 2018 und 2020 in Thüringen und Sachsen Angriffe auf vermeintliche und tatsächliche Rechtsextremisten begangen und dabei mehrere Personen zum Teil schwer verletzt haben. Bisher schleppte sich das im September 2021 begonnene Verfahren dahin, die Angeklagten verweigerten die Aussage, und Zeugen hatten wenig Handfestes zu bieten. Doch am Donnerstag gab es eine spektakuläre Entwicklung, als die Anklage eine Art Kronzeugen aufbot. Johannes D., 30 Jahre alt, betrat unter schwerem Polizeischutz den Saal 1 des Oberlandesgerichts Dresden. Vor dem Gebäude hatten sich wie stets an Prozesstagen Vertreter der linken Szene eingefunden, um ihre Unterstützung für die Angeklagten zu bekunden. Die zahlreich vertretene Polizei sah dabei großzügig über Schmähplakate wie ACAB (auf Deutsch etwa "Alle Bullen sind Schweine") hinweg.
+
+Drinnen spendeten Sympathisanten den Angeklagten Beifall. Deren Anwälte wiederum lieferten sich längst zur Tagesordnung gehörende Scharmützel mit dem Vorsitzenden Richter des Staatsschutzsenats, Hans Schlüter-Staats. Immer wieder unterbrachen sie mit Zwischenrufen die Verhandlung, wobei ihre Angriffslust oft mit übergroßer Empfindlichkeit einherging, wenn der Richter seinerseits für Ordnung sorgte. Als er am Donnerstag einen besonders penetranten Verteidiger wegen wiederholter Störung ermahnte, reagierte dieser aufs Äußerste empört. Womöglich lag das auch an D., der dem Verfahren eine Wendung geben könnte. Ausführlich berichtete der Zeuge unter anderem, wie er an der Planung und Ausführung eines Überfalls auf ein von Neonazis frequentiertes Lokal in Eisenach beteiligt war. Und er nannte Namen, auch der Angeklagten. Seine Aufgabe sei es gewesen, die Rechtsextremisten auszuspähen sowie zu melden, wann diese das Lokal verließen, sagte D. Die Angriffe sollten bei den Opfern "einen nachhaltigen Schaden hinterlassen, sie aber nicht töten".
+
+Der selbst vorbestrafte Zeuge bezeichnete sich am Donnerstag als Aussteiger aus der linken Szene. Er sei im Sommer 2021 nach Warschau gezogen, um dort in einem Kindergarten als Gruppenleiter zu arbeiten. Seine einstigen "Mitstreiter" hätten ihn jedoch immer wieder kontaktiert, auch um zu erkunden, ob er noch "auf Linie" sei. Er sei nicht darauf eingegangen, die linke Szene habe sich von ihm abgewandt. Bald darauf aber tauchten im Internet mutmaßlich aus der Szene gesteuerte Einträge auf, die ihn sexueller Übergriffe bezichtigten, woraufhin er, auch auf Druck von Eltern, seinen Kita-Job wieder verlor. Die Vorwürfe seien unberechtigt, sagte D. "Ich will ein vernünftiges, gerades Leben führen." Auch deshalb habe er sich entschlossen, reinen Tisch zu machen. Danach rückten die Ermittler im Juni abermals zu Hausdurchsuchungen in Leipzig aus, die in der Szene erheblich Staub aufwirbelten.
+
+Für die Anklage sei der Mann ein Glücksfall, für die linke Szene ein Albtraum, heißt es unter Prozessbeobachtern. Die Verteidigung ist äußerst nervös. Gleich zu Beginn des Prozesstages griffen mehrere Anwälte einen akkreditierten Fotografen der Deutschen Presse-Agentur verbal an und versuchten, ihn an der Ausübung seiner Tätigkeit zu hindern. Zeuge D. wiederum befindet sich mittlerweile im Zeugenschutzprogramm. Das Gericht hat nun weitere Prozesstermine bis in den Herbst geplant.</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>29.07.2022</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c31" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c32" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 29.07.2022, Nr. 174, S. 4</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c33" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD22022072950001935579620" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c34" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c35" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi08" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi08">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi18" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi18">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi28" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi28">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi38" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi38">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi48" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi48">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_8" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">F.A.Z. Einspruch, 29.07.2022</pre>
+<pre class="docSubHeadline">Prozess gegen Linksextreme</pre>
+<pre class="docTitle">Kommt mit dem Kronzeugen die Wende?</pre>
+<pre class="docBoxTeaser">Kronzeuge sagt gegen Linksextremisten aus</pre>
+<pre class="text">Seit Monaten schleppt sich der Prozess gegen vier Linksextremisten um die Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. dahin, die Neonazis jagten. Jetzt sagt ein einstiger Mitstreiter aus - und belastet die Angeklagten schwer.
+
+Stefan Locke, Dresden
+
+Eigentlich sollte im Prozess gegen mutmaßliche Linksextremisten um die Leipziger Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. in diesen Tagen das Urteil gesprochen werden. Der Generalbundesanwalt hat E. sowie drei Männer wegen Mitgliedschaft in einer kriminellen Vereinigung angeklagt; sie sollen unter dem Kommando von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zwischen 2018 und 2020 in Thüringen und Sachsen Angriffe auf vermeintliche und tatsächliche Rechtsextremisten begangen und dabei mehrere Personen zum Teil schwer verletzt haben.
+
+Bisher schleppte sich das im September 2021 begonnene Verfahren dahin, die Angeklagten verweigerten die Aussage, und Zeugen hatten wenig Handfestes zu bieten. Doch am Donnerstag gab es eine spektakuläre Entwicklung, als die Anklage eine Art Kronzeugen aufbot.
+
+Scharmützel mit dem Vorsitzenden Richter
+
+Johannes D., 30 Jahre alt, betrat unter schwerem Polizeischutz den Saal 1 des Oberlandesgerichts Dresden. Vor dem Gebäude hatten sich wie stets an Prozesstagen Vertreter der linken Szene eingefunden, um ihre Unterstützung für die Angeklagten zu bekunden. Die zahlreich vertretene Polizei sah dabei großzügig über Schmähplakate wie ACAB (auf Deutsch etwa "Alle Bullen sind Schweine") hinweg.
+
+Drinnen spendeten Sympathisanten den Angeklagten Beifall. Deren Anwälte wiederum lieferten sich längst zur Tagesordnung gehörende Scharmützel mit dem Vorsitzenden Richter des Staatsschutzsenats, Hans Schlüter-Staats. Immer wieder unterbrachen sie mit Zwischenrufen die Verhandlung, wobei ihre Angriffslust oft mit übergroßer Empfindlichkeit einherging, wenn der Richter seinerseits für Ordnung sorgte.
+
+Als er am Donnerstag einem besonders penetranten Verteidiger wegen wiederholter Störung ermahnte, reagierte dieser aufs Äußerste empört. Womöglich lag das auch an D., der dem Verfahren eine Wendung geben könnte. Ausführlich berichtete der Zeuge unter anderem, wie er an der Planung und Ausführung eines Überfalls auf ein von Neonazis frequentiertes Lokal in Eisenach beteiligt war. Und er nannte Namen, auch der Angeklagten.
+
+Seine Aufgabe sei es gewesen, die Rechtsextremisten auszuspähen sowie zu melden, wann diese das Lokal verließen, sagte D. Die Angriffe sollten bei den Opfern "einen nachhaltigen Schaden hinterlassen, sie aber nicht töten".
+
+"Ich will ein vernünftiges, gerades Leben führen"
+
+Der selbst vorbestrafte Zeuge bezeichnete sich am Donnerstag als Aussteiger aus der linken Szene. Er sei im Sommer 2021 nach Warschau gezogen, um dort in einem Kindergarten als Gruppenleiter zu arbeiten. Seine einstigen "Mitstreiter" hätten ihn jedoch immer wieder kontaktiert, auch um zu erkunden, ob er noch "auf Linie" sei. Er sei nicht darauf eingegangen, die linke Szene habe sich von ihm abgewandt.
+
+Bald darauf aber tauchten im Internet mutmaßlich aus der Szene gesteuerte Einträge auf, die ihn sexueller Übergriffe bezichtigten, woraufhin er, auch auf Druck von Eltern, seinen Kita-Job wieder verlor. Die Vorwürfe seien unberechtigt, sagte D. "Ich will ein vernünftiges, gerades Leben führen." Auch deshalb habe er sich entschlossen, reinen Tisch zu machen. Danach rückten die Ermittler im Juni abermals zu Hausdurchsuchungen in Leipzig aus, die in der Szene erheblich Staub aufwirbelten.
+
+Für die Anklage sei der Mann ein Glücksfall, für die linke Szene ein Albtraum, heißt es unter Prozessbeobachtern. Die Verteidigung ist äußerst nervös. Gleich zu Beginn des Prozesstages griffen mehrere Anwälte einen akkreditierten Fotografen der Deutschen Presse-Agentur verbal an und versuchten, ihn an der Ausübung seiner Tätigkeit zu hindern. Zeuge D. wiederum befindet sich mittlerweile im Zeugenschutzprogramm. Das Gericht hat nun weitere Prozesstermine bis in den Herbst geplant.
+
+F.A.Z.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>29.07.2022</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c36" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c37" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>F.A.Z. Einspruch, 29.07.2022</td>
+								</tr>
+							
+							
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c38" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZE__fazein_8206112" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi09" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi09">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi19" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi19">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi29" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi29">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi39" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi39">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi49" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi49">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi59" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi59">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi69" type="checkbox" value="&quot;Linksradikalismus&quot;.DE."/>
+												<label  for="f_simi69">Linksradikalismus</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_9" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 24.09.2021, Nr. 222, S. 2</pre>
+<pre class="docTitle">Linker Krawall</pre>
+<pre class="docBoxTeaser">Sachsen arbeitet Demo in Leipzig auf</pre>
+<pre class="text">lock. DRESDEN. Nach den gewalttätigen linksextremen Ausschreitungen am vergangenen Wochenende in Leipzig hat sich am Donnerstag der Innenausschuss des Sächsischen Landtags auf einer Sondersitzung mit dem Thema befasst. Bei der Demonstration am Samstag seien das Versammlungsrecht und die Stadt "wieder einmal als Plattform missbraucht" worden, erklärte im Anschluss die CDU-Fraktion. "Wer Krawallos aus ganz Deutschland einlädt, braucht sich am Ende nicht wundern, wenn sie Steine werfen und Polizisten angreifen", sagte Unionsinnenpolitiker Rico Anton. Die AfD-Fraktion warf Polizei und Regierung vor, die Demonstration "grandios unterschätzt" zu haben, und forderte eine Aufstockung der Sonderkommission gegen Linksextremismus auf die gleiche Personalstärke wie die Kommission gegen Rechtsextremismus. Die Grünen, die in Sachsen in einer Koalition mit CDU und SPD regieren, attestierten der Polizei dagegen, "diese komplexe Lage mit großer Professionalität gemanagt" zu haben. "Und sie ist dort eingeschritten, wo es notwendig und geboten war - insbesondere nach Ende der Versammlung", sagt der innenpolitische Sprecher der Fraktion, Valentin Lippmann. Zugleich appellierte er an den Innenminister, Vorwürfe wegen der Behinderung von Medien durch Polizeivertreter zügig aufzuklären.
+
+Am vergangenen Samstag waren rund 3500 Personen nach einer Kundgebung zunächst friedlich unter dem Motto "Wir alle sind LinX" durch Leipzig gelaufen. Der Polizei zufolge wurden bereits nach wenigen Hundert Metern aus dem Demonstrationszug heraus Pyrotechnik abgebrannt und Böller gezündet. Auf dem weiteren Weg in Richtung des Stadtteils Connewitz, in dem es immer wieder zu Ausschreitungen Linksextremer kommt, hätten einige Demonstranten dann abermals Böller gezündet und damit begonnen, Farbbeutel auf Fassaden zu werfen. Später seien auch Polizisten und deren Einsatzfahrzeuge beworfen worden. Sieben Einsatzkräfte trugen dabei leichte Verletzungen davon. Auf einem Transparent bedrohten Teilnehmer namentlich den Chef des Terrorismus- und Extremismusabwehrzentrums der sächsischen Polizei: "Bald ist er aus Dein Traum, dann liegst Du im Kofferraum." Die Polizei ermittelt wegen schweren Landfriedensbruchs, gefährlicher Körperverletzung, Sachbeschädigung sowie der Störung des öffentlichen Friedens durch Aufruf zu Straftaten.
+
+Anlass für die Demonstration, zu der verschiedenste Gruppen bundesweit mobilisiert hatten, war die vermeintliche Kriminalisierung des Antifaschismus durch Polizei und Justiz. Hintergrund ist der seit Mitte September am Oberlandesgericht in Dresden laufende Prozess gegen vier mutmaßliche Mitglieder eines linksextremen Netzwerks, darunter die Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Kassel stammt und bis zu ihrer Verhaftung im vergangenen November in Leipzig lebte. Der Generalbundesanwalt wirft der in Untersuchungshaft sitzenden Frau vor, Kopf des Netzwerks zu sein, das vermeintliche und tatsächliche Rechtsextremisten in Sachsen und Thüringen überfallen haben soll.
+
+In dem Prozess, der als eines der bedeutendsten Verfahren gegen die linksextreme Szene seit Jahren gilt, zieht sich die Beweisführung bisher vor allem durch zahlreiche taktische Manöver der Verteidigung in die Länge. Am Mittwoch wurde erstmals ein Zeuge gehört. Ein früherer Leipziger NPD-Stadtrat, der mehrfach vorbestraft ist, entlastete <em class="hlt1">Lina</em> <em class="hlt1">E</em>. indirekt, indem er den Überfall auf seine Person als Tat von vier Männern schilderte, die mit Sturmhauben auf ihn losgegangen seien und gezielt auf Kopf und Knie geschlagen hätten. Er hatte multiple Knochenbrüche davongetragen. Die Anklage hingegen geht von einer Beteiligung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. aus.</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>24.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c39" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c40" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 24.09.2021, Nr. 222, S. 2</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c41" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD2202109246298468" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c42" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c43" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi010" type="checkbox" value="&quot;Sachsen&quot;.1F."/>
+												<label  for="f_simi010">Sachsen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi110" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi110">Innere Sicherheit</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi210" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi210">Prozeß</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi310" type="checkbox" value="&quot;Linksradikalismus&quot;.DE."/>
+												<label  for="f_simi310">Linksradikalismus</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi410" type="checkbox" value="&quot;Demonstrationen&quot;.DE. &quot;Grunds&auml;tzliches&quot;.DE."/>
+												<label  for="f_simi410">Demonstrationen. Grundsätzliches</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi510" type="checkbox" value="&quot;Einzelne Parlamentsaussch&uuml;sse&quot;.DE."/>
+												<label  for="f_simi510">Einzelne Parlamentsausschüsse</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi610" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi610">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi710" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi710">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Institution</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi810" type="checkbox" value="&quot;Innenausschu&szlig;&quot;.AX."/>
+												<label  for="f_simi810">Innenausschuß</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_10" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 23.09.2021</pre>
+<pre class="docSubHeadline">Ausschreitungen in Leipzig</pre>
+<pre class="docTitle">"Bald ist er aus Dein Traum, dann liegst Du im Kofferraum"</pre>
+<pre class="docBoxTeaser">Von Stefan Locke, Dresden</pre>
+<pre class="bold">Nach den linksextremen Ausschreitungen in Leipzig beschäftigte sich der Landtag mit dem Thema. Die CDU erklärte, die Stadt sei als Plattform missbraucht worden.</pre>
+<pre class="text">Nach den gewalttätigen linksextremen Ausschreitungen am vergangenen Wochenende in Leipzig hat sich am Donnerstag der Innenausschuss des sächsischen Landtags auf einer Sondersitzung mit dem Thema befasst. Bei der Demonstration am Samstag seien das Versammlungsrecht und die Stadt "wieder einmal als Plattform missbraucht" worden, erklärte im Anschluss die CDU-Fraktion. "Wer Krawallos aus ganz Deutschland einlädt, braucht sich am Ende nicht wundern, wenn sie Steine werfen und Polizisten angreifen", sagte Unions-Innenpolitiker Rico Anton.
+
+Die AfD-Fraktion warf Polizei und Regierung vor, die Demonstration "grandios unterschätzt" zu haben und forderte eine Aufstockung der Sonderkommission gegen Linksextremismus auf die gleiche Personalstärke wie die Kommission gegen Rechtsextremismus. Die Grünen, die in Sachsen in einer Koalition mit CDU und SPD regieren, attestierten der Polizei dagegen, "diese komplexe Lage mit großer Professionalität gemanagt" zu haben. "Und sie ist dort eingeschritten, wo es notwendig und geboten war - insbesondere nach Ende der Versammlung", sagt der innenpolitische Sprecher der Fraktion, Valentin Lippmann. Zugleich appellierte er an den Innenminister, Vorwürfe wegen der Behinderung von Medien durch Polizeivertreter zügig aufzuklären.
+
+Am vergangenen Samstag waren rund 3500 Personen nach einer Kundgebung zunächst friedlich unter dem Motto "Wir alle sind LinX" durch Leipzig gelaufen. Der Polizei zufolge wurden bereits nach wenigen hundert Metern aus dem Demonstrationszug heraus Pyrotechnik abgebrannt und Böller gezündet. Auf dem weiteren Weg in Richtung des Stadtteils Connewitz, in dem es immer wieder zu Ausschreitungen Linksextremer kommt, hätten einige Demonstranten dann abermals Böller gezündet und damit begonnen, Farbbeutel auf Fassaden zu werfen.
+
+Sieben verletzte Polizisten
+
+Später seien auch Polizisten und deren Einsatzfahrzeuge beworfen worden. Sieben Einsatzkräfte trugen dabei leichte Verletzungen davon. Auf einem Transparent bedrohten Teilnehmer namentlich den Chef des Terrorismus- und Extremismusabwehrzentrums der sächsischen Polizei: "Bald ist er aus Dein Traum, dann liegst Du im Kofferraum." Die Polizei ermittelt wegen schweren Landfriedensbruchs, gefährlicher Körperverletzung, Sachbeschädigung sowie der Störung des öffentlichen Friedens durch Aufruf zu Straftaten.
+
+Anlass für die Demonstration, zu der verschiedenste Gruppen bundesweit mobilisiert hatten, war die vermeintliche Kriminalisierung des Antifaschismus durch Polizei und Justiz. Hintergrund ist der seit Mitte September am Oberlandesgericht in Dresden laufende Prozess gegen vier mutmaßliche Mitglieder eines linksextremen Netzwerks, darunter die Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Kassel stammt und bis zu ihrer Verhaftung im vergangenen November in Leipzig lebte. Der Generalbundesanwalt wirft der in Untersuchungshaft sitzenden Frau vor, Kopf des Netzwerks zu sein, das vermeintliche und tatsächliche Rechtsextremisten in Sachsen und Thüringen überfallen haben soll.
+
+In dem Prozess, der als eines der bedeutendsten Verfahren gegen die linksextreme Szene seit Jahren gilt, zieht sich die Beweisführung bisher vor allem durch zahlreiche taktische Manöver der Verteidigung in die Länge. Am Mittwoch wurde erstmals ein Zeuge gehört. Ein früherer Leipziger NPD-Stadtrat, der mehrfach vorbestraft ist, entlastete <em class="hlt1">Lina</em> <em class="hlt1">E</em>. indirekt, indem er den Überfall auf seine Person als Tat von vier Männern schilderte, die mit Sturmhauben auf ihn losgegangen seien und gezielt auf Kopf und Knie geschlagen hätten. Er hatte multiple Knochenbrüche davongetragen. Die Anklage hingegen geht von einer Beteiligung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. aus.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>23.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c44" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c45" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 23.09.2021</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c46" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20210923_7551127" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 18.09.2021</pre>
+<pre class="docSubHeadline">"Wir sind alle LinX"-Demo</pre>
+<pre class="docTitle">Brennende Barrikaden in Leipzig</pre>
+<pre class="bold">Während der Demonstration bewerfen einige Teilnehmer Gebäude mit Flaschen, Böllern und Steinen. Nach dem Ende des Aufzugs entzünden Vermummte im Stadtteil Connewitz Barrikaden. Es gibt Verletzte.</pre>
+<pre class="text">Im Zuge einer Demonstration unter dem Motto "Wir sind alle LinX" ist es am Samstag in Leipzig zu Ausschreitungen gekommen. Während des Aufzugs von der Innenstadt in den Leipziger Süden wurden immer wieder Gebäude mit Steinen beworfen. Nach seinem offiziellen Ende entzündeten Vermummte im Stadtteil Connewitz Barrikaden. Die Polizei fuhr Wasserwerfer auf, die wiederum mit Steinen beworfen wurden. Für die Demonstration war bundesweit mobilisiert worden.
+
+Laut Polizei beteiligten sich in der Spitze bis zu 3500 Menschen an der Demonstration, die Organisatoren sprachen von 6000. Sie wurde von einem Kampagnenbündnis organisiert. Anlass war der Prozess gegen die Leipziger Studentin <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und drei Mitangeklagte aus Leipzig und Berlin wegen Bildung einer kriminellen Vereinigung und Attacken auf mutmaßliche Rechte. Es wurde unter anderem die sofortige Freilassung der Frau gefordert.
+
+Die Polizei war mit einem Großaufgebot im Einsatz. Die Demonstration begann zunächst friedlich, auch wenn immer wieder Böller und Bengalos gezündet wurden.
+
+Als der Zug die Polizeidirektion Leipzig passierte, wurden Flaschen und Feuerwerkskörper gegen das Gebäude geworfen. Entlang der Demo-Route sammelten einzelne schwarz Vermummte immer wieder Pflastersteine auf und schleuderten sie gegen die Scheiben mehrerer Bankgebäude; auch ein Haus mit Studentenappartements war Ziel.
+
+Am späten Nachmittag wurde die Demonstration am Connewitzer Kreuz offiziell beendet. Wie eine Polizeisprecherin sagte, hat die Staatsanwaltschaft Leipzig Ermittlungen wegen Verstößen gegen das Versammlungsgesetz eingeleitet. Eine Vielzahl von Teilnehmern sei vermummt gewesen. Ein schwarzer Block innerhalb der Demonstration trug ein Transparent mit einer Drohung gegen den Chef des Polizeilichen Terrorismus- und Extremismus-Abwehrzentrum (PTAZ). "Bald ist er aus Dein Traum, dann liegst Du im Kofferraum" war auf dem Stoffbanner hinter dem Namen des PTAZ-Chefs zu lesen.
+
+Am Abend beruhigte sich die Lage in Connewitz allmählich. Ein Polizeihubschrauber kreiste über dem Viertel. Die Polizei war nach eigenen Angaben mit tausend Kräften im Einsatz. Die sächsischen Beamten hatten Unterstützung aus Berlin, Niedersachsen, Sachsen-Anhalt und Thüringen.
+
+Nach Angaben der Polizeidirektion vom späten Abend wurden sieben Beamte leicht verletzt. Es seien Ermittlungsverfahren unter anderem wegen schweren Landfriedensbruchs, gefährlicher Körperverletzung, Sachbeschädigung, Störung des öffentlichen Friedens durch Androhung von Straftaten und Verstößen gegen das Versammlungsgesetz eingeleitet worden.
+
+dpa</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>18.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c47" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c48" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 18.09.2021</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c49" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20210918_7543917" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">Frankfurter Allgemeine Zeitung, 09.09.2021, Nr. 209, S. 3</pre>
+<pre class="docTitle">Unter dem Jubel der Szene</pre>
+<pre class="docBoxTeaser">Eine Gruppe Linksextremer soll potentiell lebensgefährliche Angriffe durchgeführt haben / Von Stefan Locke, Dresden</pre>
+<pre class="text">Als die Angeklagten am Mittwochvormittag den Verhandlungssaal betreten, branden Beifall und Jubel auf. Im Publikum haben knapp zwei Dutzend Anhänger der Linksextremisten Platz genommen, und sie machen aus ihrer Sympathie für diejenigen, denen hier im kommenden halben Jahr der Prozess gemacht werden soll, keinen Hehl. In jeder Pause gehen sie an die Trennscheiben zwischen Publikum und Verhandlungssaal, einige malen daran imaginäre Herzchen mit ihren Fingern, andere werfen Kusshände, die vor allem an die Hauptangeklagte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. adressiert sind. Sie erwidert die Bekundungen mit Winken und Lächeln. Der Eindruck eines Happenings steht jedoch in starkem Kontrast zu den Vorwürfen, die Vertreter der Bundesanwaltschaft am Mittag verlesen. Sie benötigen dafür fast anderthalb Stunden.
+
+Demnach sollen die 26 Jahre alte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sowie die drei Mitangeklagten - ein gleichaltriger Mann und ein 36 Jahre alter Mann aus Leipzig sowie ein 26 Jahre alter Mann aus Berlin - spätestens im Sommer 2018 in Leipzig eine kriminelle Vereinigung gegründet haben mit dem Ziel, politische Gegner aus dem rechten Spektrum anzugreifen. Die Anklage legte den vier Beschuldigten mindestens sechs Angriffe mit gefährlicher Körperverletzung in Sachsen und Thüringen sowie einen Versuch und darüber hinaus weitere Straftaten wie Diebstahl und Urkundenfälschung zur Last. <em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Kassel stammt, in Leipzig lebte und Erziehungswissenschaften studierte, soll die Rädelsführerin der Gruppe und fest in die linksextreme Szene im Leipziger Stadtteil Connewitz eingebunden gewesen sein. Sie sitzt seit November 2020 in Untersuchungshaft, während die drei Mitangeklagten auf freiem Fuß blieben.
+
+Punkt für Punkt listet die Anklage Straftaten auf, die die Gruppe zwischen Sommer 2018 und Herbst 2020 begangen haben soll. Dazu zählt etwa der Überfall auf Cedric S. aus der NPD-Jugend in Wurzen (Sachsen), der nach Schlägen mit einem Teleskopstock, Faustschlägen und Tritten eine Schädelprellung und zwei Wirbelbrüche davontrug - der Anklage zufolge potentiell lebensgefährliche Verletzungen. Gleich zweimal soll die Truppe ein von Rechtsextremisten frequentiertes Lokal in Eisenach (Thüringen) überfallen und dort ebenfalls mit Schlagstöcken, Baseballschlägern und Reizgas die Einrichtung verwüstet, Scheiben zerstört und mehrere Gäste verletzt haben. Den Inhaber des Lokals, einen Neonazi, sollen die Angeklagten vor seiner Wohnung "empfangen" haben, doch weil er sich erfolgreich wehrte, hätten sie sich dessen Begleiter vorgenommen; sie saßen in einem Auto, das die Gruppe kurz und klein geschlagen haben soll. Auch hier gab es mehrere Verletzte.
+
+In der gleichen Nacht stoppte die Polizei <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und einen weiteren Verdächtigen - sie saßen in einem Auto mit gestohlenen Kennzeichen; die echten lagen mit im Auto, das auf Lina E.s Mutter zugelassen war. Darüber hinaus fanden die Ermittler in der Wohnung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zahlreiche Handys und anonyme SIM-Karten sowie Perücken und weitere Utensilien zum Verkleiden. <em class="hlt1">Lina</em> <em class="hlt1">E</em>. soll an allen Taten beteiligt gewesen sein, die nun Teil der Anklage sind; ebenso ihr Lebensgefährte, der untergetaucht ist und nach dem international gefahndet wird. Die Angeklagten seien "gewaltbereite, militante Linksextremisten", deren Handeln durch intensive Vorbereitung wie Beobachten und Ausspähen, entschlossene Umsetzung und arbeitsteilige Ausführung gekennzeichnet gewesen sei, so die Anklage. Insgesamt seien dadurch 13 Menschen zum Teil schwer verletzt und erheblicher Sachschaden angerichtet worden.
+
+Die Verteidiger, die sich bereits zu Beginn heftige Wortgefechte mit dem Vorsitzenden Richter Hans Schlüter-Staats lieferten, kritisierten die Anklage und wiesen insbesondere den Vorwurf der Bildung einer kriminellen Vereinigung zurück. Der Generalbundesanwalt wolle damit lediglich testen, wie weit er nach der Änderung des Paragraphen 129 Strafgesetzbuch (Bildung krimineller Vereinigungen) gehen könne. Der Paragraph sei jedoch mit dem Ziel geändert worden, die Organisierte Kriminalität wirksamer zu bekämpfen, so die Verteidigung. Ihren Mandanten würden hingegen lediglich Einzeltaten zur Last gelegt, welche die staatliche Ordnung nicht in Gefahr gebracht hätten. Es gebe "noch nicht mal Belege", dass eine kriminelle Vereinigung bestanden habe, und dennoch würden ihre Mandanten "in die Nähe des Terrorismus" gestellt und willkürlich beschuldigt. "Ein gemeinsames Tatmuster, das alle Einzeltaten vereint, gibt es jedoch nicht." Es handele sich stattdessen "um politischen Verfolgungseifer von Ermittlungsbehörden".
+
+Die Bundesanwaltschaft gab sich hingegen sicher. Zwar sei es der erste Prozess dieser Art seit Jahren, der sich nicht mit Rechtsextremen, sondern mit Linksextremen beschäftige, sagte Bundesanwalt Bodo Vogler. "Die besondere Bedeutung des Verfahrens ergibt sich daraus, dass sich die Mitglieder dieser Gruppe als berechtigt ansahen, ihre politische Meinung mit Gewalt durchzusetzen und damit das staatliche Gewaltmonopol zu untergraben." Die Angeklagten hätten damit "an den Grundpfeilern der demokratischen Gesellschaftsordnung gerüttelt", deren Merkmal ein friedlicher Meinungskampf sei, und obendrein zur Radikalisierung und Eskalation beigetragen.
+
+Vor dem massiv gesicherten Gerichtsgebäude, in dem zuvor schon Prozesse gegen rechtsextreme Terrorgruppen und islamistische Täter stattgefunden hatten, protestierten mehrere Dutzend Anhänger der linken und linksextremen Szene gegen den Prozess. "Free Lina", "Gegen staatliche Repression" und "Antifaschismus ist kein Verbrechen" hatten sie auf Transparente geschrieben. Bereits am Vorabend hatten rund 100 Anhänger der Angeklagten in Dresden demonstriert, um gegen eine vermeintliche Kriminalisierung des Antifaschismus zu protestieren. Sie forderten, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. freizulassen, da der Prozess "politisch motiviert" und die Anklage "konstruiert" seien. In einer Pressemitteilung erklärten die Veranstalter, die unter dem Label "Antifa Ost" auftraten, dass konsequenter Antifaschismus notwendig sei, "auch wenn er sich nicht immer im Rahmen des Gesetzes bewegt". Man solidarisiere sich mit allen, "die sich auch im Angesicht der staatlichen Repression Nazis in den Weg stellen, sei es nun mit Hammer oder Megafon".</pre>
+<pre class="text"> </pre>
+<div class="moduleDocumentGraphic"></div>
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>09.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c50" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c51" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>Frankfurter Allgemeine Zeitung, 09.09.2021, Nr. 209, S. 3</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td>Politik</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td>Politik</td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c52" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZ__FD1202109096293619" target="_blank">Speichern</a></li>
+								
+									<li>
+										<a rel="nofollow" id="f_c53" href="#" class="box-pdf-article">Artikel-PDF</a>
+									</li>
+								
+								
+									<li>
+										<a rel="nofollow" id="f_c54" href="#" class="box-pdf-whole">
+											
+												Zeitungsseite
+												
+											
+										</a>
+									</li>
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi013" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi013">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi113" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi113">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi213" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi213">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi313" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi313">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi413" type="checkbox" value="&quot;Linksradikalismus&quot;.DE."/>
+												<label  for="f_simi413">Linksradikalismus</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi513" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi513">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi613" type="checkbox" value="&quot;Bildung krimineller Vereinigungen&quot;.DE."/>
+												<label  for="f_simi613">Bildung krimineller Vereinigungen</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_13" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource"><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 08.09.2021</pre>
+<pre class="docSubHeadline">Prozess gegen Linksextreme</pre>
+<pre class="docTitle">Hat <em class="hlt1">Lina</em> <em class="hlt1">E</em>. eine kriminelle Vereinigung gegründet?</pre>
+<pre class="docBoxTeaser">Von Stefan Locke, Dresden</pre>
+<pre class="bold">Mindestens sechs Angriffe auf politische Gegner aus der rechten Szene sollen die 26 Jahre alte Hauptangeklagte und drei Mittäter verübt haben. Die Antifa feiert sie beim Prozessauftakt.</pre>
+<pre class="text">Als die Angeklagten am Mittwochvormittag den Verhandlungssaal betreten, branden Beifall und Jubel auf. Im Publikum haben knapp zwei Dutzend Anhänger der Linksextremisten Platz genommen, und sie machen aus ihrer Sympathie für diejenigen, denen hier im kommenden halben Jahr der Prozess gemacht werden soll, keinen Hehl. In jeder Pause gehen sie an die Trennscheiben zwischen Publikum und Verhandlungssaal, einige malen daran imaginäre Herzchen mit ihren Fingern, andere werfen Kusshände, die vor allem an die Hauptangeklagte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. adressiert sind.
+
+Sie erwidert die Bekundungen mit Winken und Lächeln. Der Eindruck eines Happenings steht jedoch in starkem Kontrast zu den Vorwürfen, die Vertreter der Bundesanwaltschaft am Mittag verlesen. Sie benötigen dafür fast anderthalb Stunden.
+
+Demnach sollen die 26 Jahre alte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sowie die drei Mitangeklagten - ein gleichaltriger Mann und ein 36 Jahre alter Mann aus Leipzig sowie ein 26 Jahre alter Mann aus Berlin - spätestens im Sommer 2018 in Leipzig eine kriminelle Vereinigung gegründet haben mit dem Ziel, politische Gegner aus dem rechten Spektrum anzugreifen. Die Anklage legte den vier Beschuldigten mindestens sechs Angriffe mit gefährlicher Körperverletzung in Sachsen und Thüringen sowie einen Versuch und darüber hinaus weitere Straftaten wie Diebstahl und Urkundenfälschung zur Last.
+
+<em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Kassel stammt, in Leipzig lebte und Erziehungswissenschaften studierte, soll die Rädelsführerin der Gruppe und fest in die linksextreme Szene im Leipziger Stadtteil Connewitz eingebunden gewesen sein. Sie sitzt seit November 2020 in Untersuchungshaft, während die drei Mitangeklagten auf freiem Fuß blieben.
+
+Die Anklage spricht von gewaltbereiten, militanten Linksextremisten
+
+Punkt für Punkt listet die Anklage Straftaten auf, die die Gruppe zwischen Sommer 2018 und Herbst 2020 begangen haben soll. Dazu zählt etwa der Überfall auf Cedric S. aus der NPD-Jugend in Wurzen (Sachsen), der nach Schlägen mit einem Teleskopstock, Faustschlägen und Tritten eine Schädelprellung und zwei Wirbelbrüche davontrug - der Anklage zufolge potentiell lebensgefährliche Verletzungen. Gleich zweimal soll die Truppe ein von Rechtsextremisten frequentiertes Lokal in Eisenach (Thüringen) überfallen und dort ebenfalls mit Schlagstöcken, Baseballschlägern und Reizgas die Einrichtung verwüstet, Scheiben zerstört und mehrere Gäste verletzt haben. Den Inhaber des Lokals, einen Neonazi, sollen die Angeklagten vor seiner Wohnung "empfangen" haben, doch weil er sich erfolgreich wehrte, hätten sie sich dessen Begleiter vorgenommen; sie saßen in einem Auto, das die Gruppe kurz und klein geschlagen haben soll. Auch hier gab es mehrere Verletzte.
+
+In der gleichen Nacht stoppte die Polizei <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und einen weiteren Verdächtigen - sie saßen in einem Auto mit gestohlenen Kennzeichen; die echten lagen mit im Auto, das auf Lina E.s Mutter zugelassen war. Darüber hinaus fanden die Ermittler in der Wohnung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zahlreiche Handys und anonyme SIM-Karten sowie Perücken und weitere Utensilien zum Verkleiden. <em class="hlt1">Lina</em> <em class="hlt1">E</em>. soll an allen Taten beteiligt gewesen sein, die nun Teil der Anklage sind; ebenso ihr Lebensgefährte, der untergetaucht ist und nach dem international gefahndet wird. Die Angeklagten seien "gewaltbereite, militante Linksextremisten", deren Handeln durch intensive Vorbereitung wie Beobachten und Ausspähen, entschlossene Umsetzung und arbeitsteilige Ausführung gekennzeichnet gewesen sei, so die Anklage. Insgesamt seien dadurch 13 Menschen zum Teil schwer verletzt und erheblicher Sachschaden angerichtet worden.
+
+Die Verteidiger, die sich bereits zu Beginn heftige Wortgefechte mit dem Vorsitzenden Richter Hans Schlüter-Staats lieferten, kritisierten die Anklage und wiesen insbesondere den Vorwurf der Bildung einer kriminellen Vereinigung zurück. Der Generalbundesanwalt wolle damit lediglich testen, wie weit er nach der Änderung des Paragraphen 129 Strafgesetzbuch (Bildung krimineller Vereinigungen) gehen könne. Der Paragraph sei jedoch mit dem Ziel geändert worden, die Organisierte Kriminalität wirksamer zu bekämpfen, so die Verteidigung. Ihren Mandanten würden hingegen lediglich Einzeltaten zur Last gelegt, welche die staatliche Ordnung nicht in Gefahr gebracht hätten. Es gebe "noch nicht mal Belege", dass eine kriminelle Vereinigung bestanden habe, und dennoch würden ihre Mandanten "in die Nähe des Terrorismus" gestellt und willkürlich beschuldigt. "Ein gemeinsames Tatmuster, das alle Einzeltaten vereint, gibt es jedoch nicht." Es handele sich stattdessen "um politischen Verfolgungseifer von Ermittlungsbehörden".
+
+Konsequenter Antifaschismus, schreiben sie, bewege sich nicht immer im Rahmen der Gesetze
+
+Die Bundesanwaltschaft gab sich hingegen sicher. Zwar sei es der erste Prozess dieser Art seit Jahren, der sich nicht mit Rechtsextremen, sondern mit Linksextremen beschäftige, sagte Bundesanwalt Bodo Vogler. "Die besondere Bedeutung des Verfahrens ergibt sich daraus, dass sich die Mitglieder dieser Gruppe als berechtigt ansahen, ihre politische Meinung mit Gewalt durchzusetzen und damit das staatliche Gewaltmonopol zu untergraben." Die Angeklagten hätten damit "an den Grundpfeilern der demokratischen Gesellschaftsordnung gerüttelt", deren Merkmal ein friedlicher Meinungskampf sei, und obendrein zur Radikalisierung und Eskalation beigetragen.
+
+Vor dem massiv gesicherten Gerichtsgebäude, in dem zuvor schon Prozesse gegen rechtsextreme Terrorgruppen und islamistische Täter stattgefunden hatten, protestierten mehrere Dutzend Anhänger der linken und linksextremen Szene gegen den Prozess. "Free Lina", "Gegen staatliche Repression" und "Antifaschismus ist kein Verbrechen" hatten sie auf Transparente geschrieben. Bereits am Vorabend hatten rund 100 Anhänger der Angeklagten in Dresden demonstriert, um gegen eine vermeintliche Kriminalisierung des Antifaschismus zu protestieren. Sie forderten, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. freizulassen, da der Prozess "politisch motiviert" und die Anklage "konstruiert" seien. In einer Pressemitteilung erklärten die Veranstalter, die unter dem Label "Antifa Ost" auftraten, dass konsequenter Antifaschismus notwendig sei, "auch wenn er sich nicht immer im Rahmen des Gesetzes bewegt". Man solidarisiere sich mit allen, "die sich auch im Angesicht der staatlichen Repression Nazis in den Weg stellen, sei es nun mit Hammer oder Megafon".</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>08.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c55" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c56" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a>, 08.09.2021</td>
+								</tr>
+							
+							
+								<tr>
+									<td>Ressort</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							
+								<tr>
+									<td>Seitenüberschrift</td>
+									<td><a href="http://FAZ.NET" target="_blank">FAZ.NET</a></td>
+								</tr>
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c57" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZN__20210908_7527513" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+	<div class="document-main">
+		
+
+		
+			<div class="single-document">
+				
+				
+<pre class="docSource">F.A.Z. Einspruch, 08.09.2021</pre>
+<pre class="docSubHeadline">Prozess gegen Linksextreme</pre>
+<pre class="docTitle">Hat <em class="hlt1">Lina</em> <em class="hlt1">E</em>. eine kriminelle Vereinigung gegründet?</pre>
+<pre class="text">Mindestens sechs Angriffe auf politische Gegner aus der rechten Szene sollen die 26 Jahre alte Hauptangeklagte und drei Mittäter verübt haben. Die Antifa feiert sie beim Prozessauftakt.
+
+Stefan Locke, Dresden
+
+Als die Angeklagten am Mittwochvormittag den Verhandlungssaal betreten, branden Beifall und Jubel auf. Im Publikum haben knapp zwei Dutzend Anhänger der Linksextremisten Platz genommen, und sie machen aus ihrer Sympathie für diejenigen, denen hier im kommenden halben Jahr der Prozess gemacht werden soll, keinen Hehl. In jeder Pause gehen sie an die Trennscheiben zwischen Publikum und Verhandlungssaal, einige malen daran imaginäre Herzchen mit ihren Fingern, andere werfen Kusshände, die vor allem an die Hauptangeklagte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. adressiert sind.
+
+Sie erwidert die Bekundungen mit Winken und Lächeln. Der Eindruck eines Happenings steht jedoch in starkem Kontrast zu den Vorwürfen, die Vertreter der Bundesanwaltschaft am Mittag verlesen. Sie benötigen dafür fast anderthalb Stunden.
+
+Demnach sollen die 26 Jahre alte <em class="hlt1">Lina</em> <em class="hlt1">E</em>. sowie die drei Mitangeklagten - ein gleichaltriger Mann und ein 36 Jahre alter Mann aus Leipzig sowie ein 26 Jahre alter Mann aus Berlin - spätestens im Sommer 2018 in Leipzig eine kriminelle Vereinigung gegründet haben mit dem Ziel, politische Gegner aus dem rechten Spektrum anzugreifen. Die Anklage legte den vier Beschuldigten mindestens sechs Angriffe mit gefährlicher Körperverletzung in Sachsen und Thüringen sowie einen Versuch und darüber hinaus weitere Straftaten wie Diebstahl und Urkundenfälschung zur Last.
+
+<em class="hlt1">Lina</em> <em class="hlt1">E</em>., die aus Kassel stammt, in Leipzig lebte und Erziehungswissenschaften studierte, soll die Rädelsführerin der Gruppe und fest in die linksextreme Szene im Leipziger Stadtteil Connewitz eingebunden gewesen sein. Sie sitzt seit November 2020 in Untersuchungshaft, während die drei Mitangeklagten auf freiem Fuß blieben.
+
+Die Anklage spricht von gewaltbereiten, militanten Linksextremisten
+
+Punkt für Punkt listet die Anklage Straftaten auf, die die Gruppe zwischen Sommer 2018 und Herbst 2020 begangen haben soll. Dazu zählt etwa der Überfall auf Cedric S. aus der NPD-Jugend in Wurzen (Sachsen), der nach Schlägen mit einem Teleskopstock, Faustschlägen und Tritten eine Schädelprellung und zwei Wirbelbrüche davontrug - der Anklage zufolge potentiell lebensgefährliche Verletzungen. Gleich zweimal soll die Truppe ein von Rechtsextremisten frequentiertes Lokal in Eisenach (Thüringen) überfallen und dort ebenfalls mit Schlagstöcken, Baseballschlägern und Reizgas die Einrichtung verwüstet, Scheiben zerstört und mehrere Gäste verletzt haben. Den Inhaber des Lokals, einen Neonazi, sollen die Angeklagten vor seiner Wohnung "empfangen" haben, doch weil er sich erfolgreich wehrte, hätten sie sich dessen Begleiter vorgenommen; sie saßen in einem Auto, das die Gruppe kurz und klein geschlagen haben soll. Auch hier gab es mehrere Verletzte.
+
+(======================= Linkliste =======================)
+
+In der gleichen Nacht stoppte die Polizei <em class="hlt1">Lina</em> <em class="hlt1">E</em>. und einen weiteren Verdächtigen - sie saßen in einem Auto mit gestohlenen Kennzeichen; die echten lagen mit im Auto, das auf Lina E.s Mutter zugelassen war. Darüber hinaus fanden die Ermittler in der Wohnung von <em class="hlt1">Lina</em> <em class="hlt1">E</em>. zahlreiche Handys und anonyme SIM-Karten sowie Perücken und weitere Utensilien zum Verkleiden. <em class="hlt1">Lina</em> <em class="hlt1">E</em>. soll an allen Taten beteiligt gewesen sein, die nun Teil der Anklage sind; ebenso ihr Lebensgefährte, der untergetaucht ist und nach dem international gefahndet wird. Die Angeklagten seien "gewaltbereite, militante Linksextremisten", deren Handeln durch intensive Vorbereitung wie Beobachten und Ausspähen, entschlossene Umsetzung und arbeitsteilige Ausführung gekennzeichnet gewesen sei, so die Anklage. Insgesamt seien dadurch 13 Menschen zum Teil schwer verletzt und erheblicher Sachschaden angerichtet worden.
+
+Die Verteidiger, die sich bereits zu Beginn heftige Wortgefechte mit dem Vorsitzenden Richter Hans Schlüter-Staats lieferten, kritisierten die Anklage und wiesen insbesondere den Vorwurf der Bildung einer kriminellen Vereinigung zurück. Der Generalbundesanwalt wolle damit lediglich testen, wie weit er nach der Änderung des Paragraphen 129 Strafgesetzbuch (Bildung krimineller Vereinigungen) gehen könne. Der Paragraph sei jedoch mit dem Ziel geändert worden, die Organisierte Kriminalität wirksamer zu bekämpfen, so die Verteidigung. Ihren Mandanten würden hingegen lediglich Einzeltaten zur Last gelegt, welche die staatliche Ordnung nicht in Gefahr gebracht hätten. Es gebe "noch nicht mal Belege", dass eine kriminelle Vereinigung bestanden habe, und dennoch würden ihre Mandanten "in die Nähe des Terrorismus" gestellt und willkürlich beschuldigt. "Ein gemeinsames Tatmuster, das alle Einzeltaten vereint, gibt es jedoch nicht." Es handele sich stattdessen "um politischen Verfolgungseifer von Ermittlungsbehörden".
+
+Konsequenter Antifaschismus, schreiben sie, bewege sich nicht immer im Rahmen der Gesetze
+
+Die Bundesanwaltschaft gab sich hingegen sicher. Zwar sei es der erste Prozess dieser Art seit Jahren, der sich nicht mit Rechtsextremen, sondern mit Linksextremen beschäftige, sagte Bundesanwalt Bodo Vogler. "Die besondere Bedeutung des Verfahrens ergibt sich daraus, dass sich die Mitglieder dieser Gruppe als berechtigt ansahen, ihre politische Meinung mit Gewalt durchzusetzen und damit das staatliche Gewaltmonopol zu untergraben." Die Angeklagten hätten damit "an den Grundpfeilern der demokratischen Gesellschaftsordnung gerüttelt", deren Merkmal ein friedlicher Meinungskampf sei, und obendrein zur Radikalisierung und Eskalation beigetragen.
+
+Vor dem massiv gesicherten Gerichtsgebäude, in dem zuvor schon Prozesse gegen rechtsextreme Terrorgruppen und islamistische Täter stattgefunden hatten, protestierten mehrere Dutzend Anhänger der linken und linksextremen Szene gegen den Prozess. "Free Lina", "Gegen staatliche Repression" und "Antifaschismus ist kein Verbrechen" hatten sie auf Transparente geschrieben. Bereits am Vorabend hatten rund 100 Anhänger der Angeklagten in Dresden demonstriert, um gegen eine vermeintliche Kriminalisierung des Antifaschismus zu protestieren. Sie forderten, <em class="hlt1">Lina</em> <em class="hlt1">E</em>. freizulassen, da der Prozess "politisch motiviert" und die Anklage "konstruiert" seien. In einer Pressemitteilung erklärten die Veranstalter, die unter dem Label "Antifa Ost" auftraten, dass konsequenter Antifaschismus notwendig sei, "auch wenn er sich nicht immer im Rahmen des Gesetzes bewegt". Man solidarisiere sich mit allen, "die sich auch im Angesicht der staatlichen Repression Nazis in den Weg stellen, sei es nun mit Hammer oder Megafon".
+
+F.A.Z.</pre>
+<pre class="text"> </pre>
+
+<pre class="docCopy">Alle Rechte vorbehalten &copy; Frankfurter Allgemeine Zeitung GmbH, Frankfurt am Main 
+Vervielfältigungs- und Nutzungsrechte für F.A.Z.-Inhalte erwerben Sie auf <a href="https://www.faz-rechte.de/lizenzen/lizenzen-text-mit-rechteanfrage/">www.faz-rechte.de</a></pre>
+				
+			</div>
+
+			<div class="document-additional-infos">
+				<div class="document-article-infos">
+					
+						<h3>Artikel</h3>
+						<table>
+							<tbody>
+							<tr>
+								<td>Veröffentlichungsdatum</td>
+								<td>08.09.2021</td>
+							</tr>
+							
+								<tr>
+									<td>
+										Quelle
+										
+											<div class="literature-export-block">
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c58" href="#">&lt;RIS&gt;</a>
+												</div>
+
+												<div class="blackButtonSmall">
+													<a rel="nofollow" id="f_c59" href="#">&lt;ENW&gt;</a>
+												</div>
+											</div>
+										
+									</td>
+									<td>F.A.Z. Einspruch, 08.09.2021</td>
+								</tr>
+							
+							
+							
+							</tbody>
+						</table>
+
+						
+							<ul>
+								<li><a rel="nofollow" id="f_c60" href="#" class="box-print"></a></li>
+								<li><a class="box-save" href="/fazPortal/saveSingleDoc?explicitId=FAZE__fazein_7527513" target="_blank">Speichern</a></li>
+								
+								
+								
+								
+							</ul>
+						
+					
+				</div>
+				
+					<div class="document-similar-searches-area">
+						<hr>
+
+						<div class="document-similar-searches">
+							<h3>Nach ähnlichen Artikeln suchen</h3>
+							<input type="hidden" name="dosearch" value="new"/>
+							
+							
+								<fieldset>
+									<legend>Land</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi015" type="checkbox" value="&quot;Deutschland&quot;.1F."/>
+												<label  for="f_simi015">Deutschland</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Sachgebiet</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi115" type="checkbox" value="&quot;Proze&szlig;&quot;.CC."/>
+												<label  for="f_simi115">Prozeß</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi215" type="checkbox" value="&quot;Innere Sicherheit&quot;.CC."/>
+												<label  for="f_simi215">Innere Sicherheit</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+								<fieldset>
+									<legend>Thema</legend>
+									<ul>
+										
+											<li>
+												
+												<input id="f_simi315" type="checkbox" value="&quot;Linksradikalismus&quot;.DE."/>
+												<label  for="f_simi315">Linksradikalismus</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi415" type="checkbox" value="&quot;Straftaten gegen Leben und Gesundheit&quot;.DE. &quot;K&ouml;rperverletzung&quot;.DE."/>
+												<label  for="f_simi415">Straftaten gegen Leben und Gesundheit. Körperverletzung</label>
+												
+											</li>
+										
+											<li>
+												
+												<input id="f_simi515" type="checkbox" value="&quot;Straftaten von Linksextremisten&quot;.DE."/>
+												<label  for="f_simi515">Straftaten von Linksextremisten</label>
+												
+											</li>
+										
+									</ul>
+								</fieldset>
+							
+
+							<button id="f_simi_search_15" type="button"></button>
+						</div>
+					</div>
+				
+			</div>
+			<div class="top-link">
+				<a href="#start">Zum Seitenanfang</a>
+			</div>
+		
+	</div>
+
+
+<div class="document-links">
+
+	
+
+	<div class="nav-links">
+		
+	</div>
+	<div class="clearfix"></div>
+
+	
+		
+
+
+	<br/>
+	<a rel="nofollow" id="f_c61" href="#" class="back-link">
+		Zurück zur Ergebnisseite
+	</a>
+
+	
+
+</div>
+
+
+
+</form><script> jQuery(function(){
+jQi('f').jasty("FazPortalDocumentForm", "init", [{"visible":true, "formClass":"FazPortalDocumentForm", "formHash":"", "id":"f"}]);
+jQi('f').jasty("FazPortalDocumentForm", "update", ["rO0ABXNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5GYXpQb3J0YWxEb2N1bWVudEZvcm0AAAAAAAAAAQIABloADXBheW1lbnROZWVkZWRMAAluYXZpZ2F0b3J0ACZMY29tL2dlbmlvcy9mYXpQb3J0YWwvUmVzdWx0TmF2aWdhdG9yO0wADnJlc3VsdEJhY2tGb3JtdAAoTGNvbS9nZW5pb3MvZmF6UG9ydGFsL0ZhelBvcnRhbEJhc2VGb3JtO0wAFnNob3dFeHRyYURpYWxvZ01lc3NhZ2V0ABJMamF2YS9sYW5nL1N0cmluZztMAAV0b2tlbnEAfgADTAAEdWlkc3QAEExqYXZhL3V0aWwvTGlzdDt4cgAmY29tLmdlbmlvcy5mYXpQb3J0YWwuRmF6UG9ydGFsQmFzZUZvcm0AAAAAAAAAAQIAAHhyABljb20uZ2VuaW9zLmphc3R5LkJhc2VGb3JtAAAAAAAAAAECAAFMAA5yZW5kZXJpbmdTdHlsZXEAfgADeHIAE2NvbS5qYXN0eS5jb3JlLkZvcm0AAAAAAAAAAQIAAkkAE2xhc3RBc3NpZ25lZENoaWxkSWRMAAZiYXNlSWRxAH4AA3hyABhjb20uamFzdHkuY29yZS5Db21wb25lbnQAAAAAAAAAAQIACFoAB3Zpc2libGVMAAVjbGF6enEAfgADTAAEZGF0YXEAfgADTAAFZGF0YTJxAH4AA0wABWRhdGEzcQB+AANMAA5kYXRhQXR0cmlidXRlc3QAD0xqYXZhL3V0aWwvTWFwO0wABXN0eWxlcQB+AANMAAV0aXRsZXEAfgADeHIAHWNvbS5qYXN0eS5jb3JlLkNvbXBvbmVudFByb3h5AAAAAAAAAAECAAFMAAJpZHEAfgADeHB0AAFmAXBwcHBwcHAAAAA+cQB+AAxwAHNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5TZWFyY2hSZXN1bHROYXZpZ2F0b3IAAAAAAAAAAQIAAHhwc3IAKGNvbS5nZW5pb3MuZmF6UG9ydGFsLkZhelBvcnRhbFNlYXJjaEZvcm0AAAAAAAAAAQIAB1oAEmVtcHR5U2VhcmNoQWxsb3dlZFoADGV4dGVuZGVkTW9kZUwAEmF0dGFjaG1lbnREZWxpdmVyeXQAH0xjb20vZ2VuaW9zL2Zhei9BdHRhY2htZW50SW5mbztMAAtzZWFyY2hRdWVyeXQAJkxjb20vZ2VuaW9zL2NvcmUvcmVzZWFyY2gvU2VhcmNoUXVlcnk7TAAOc2VhcmNoU2V0dGluZ3N0AClMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1NlYXJjaFNldHRpbmdzO0wACnNlYXJjaFR5cGV0ACZMY29tL2dlbmlvcy9mYXpQb3J0YWwvRmF6UG9ydGFsU2VhcmNoO0wADHNlbGVjdGVkRG9jc3EAfgAEeHEAfgAFcAFwcHBwcHBwAAAAAHBwAABwc3IAJGNvbS5nZW5pb3MuY29yZS5yZXNlYXJjaC5TZWFyY2hRdWVyeQAAAAAAAAABAgAXWgAPYXV0b21hdGljU2VhcmNoWgAVY2FuVXNlUHJveGltaXR5U2VhcmNoWgAKZGJTZWxlY3RlZFoAEmVtcHR5U2VhcmNoQWxsb3dlZEkABm9mZnNldEoADHNlYXJjaE1hc2tJZFoAGXNlYXJjaE9ubHlJbkFic3RyYWN0RmllbGRaABZzZWFyY2hPbmx5SW5UaXRsZUZpZWxkSQAEc2l6ZVoAD3dpdGhUaW1lRmlsdGVyc0wACmN1c3RvbVNvcnRxAH4AA0wACmRiU2hvcnRjdXRxAH4AA0wADGVmZmVjdGl2ZURic3EAfgAETAAGZmllbGRzcQB+AARMAAdmaWx0ZXJzcQB+AARMAAtmaXhlZEZpbHRlcnEAfgADTAANcmVtb3RlU3VnZ2VzdHEAfgADTAARc2VhcmNoUmVzdHJpY3Rpb250ADhMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1NlYXJjaFF1ZXJ5JFNlYXJjaFJlc3RyaWN0aW9uO0wACnNlYXJjaFRleHRxAH4AA0wAFnNlbGVjdGVkTmF2aWdhdGlvblBhdGhxAH4AA0wADHNwZWNpYWxJbmRleHQAJ0xjb20vZ2VuaW9zL2VsYXN0aWNzZWFyY2gvRWxhc3RpY0luZGV4O0wABnVzZXJJZHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wACHpGaWx0ZXJzcQB+AAR4cAAAAAAAAAA8AAAAAAAAAAAAAAAAAAoBcHQAU0ZBWixGQVpULEZBWkgsRkFTLEZBU1QsRkFTQSxSTU8sUk1PQSxGQVpNLEZBTVQsRkFaTixGQVcsRkFNLEZBUSxGQVpFLEZBRU0sRkFaRyxGQVpQc3IAE2phdmEudXRpbC5BcnJheUxpc3R4gdIdmcdhnQMAAUkABHNpemV4cAAAAAB3BAAAAAB4c3EAfgAbAAAAAXcEAAAAAXNyACdjb20uZ2VuaW9zLmNvcmUucmVzZWFyY2guRGF0ZVJhbmdlRmllbGQAAAAAAAAAAQIABkwACGZyb21EYXRlcQB+AANMAAJpZHQAEExqYXZhL2xhbmcvTG9uZztMADJvcmdfZ3JhaWxzX2RhdGFzdG9yZV9nb3JtX0dvcm1WYWxpZGF0ZWFibGVfX2Vycm9yc3QAJ0xvcmcvc3ByaW5nZnJhbWV3b3JrL3ZhbGlkYXRpb24vRXJyb3JzO0wACnRpbWVGaWx0ZXJ0ACVMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1RpbWVGaWx0ZXI7TAAGdG9EYXRlcQB+AANMAAd2ZXJzaW9ucQB+AB94cgAkY29tLmdlbmlvcy5jb3JlLnJlc2VhcmNoLlNlYXJjaEZpZWxkAAAAAAAAAAECAAVMAAJpZHEAfgAfTAAOaW5wdXRFbGVtZW50SWRxAH4AH0wABG5hbWVxAH4AA0wAMm9yZ19ncmFpbHNfZGF0YXN0b3JlX2dvcm1fR29ybVZhbGlkYXRlYWJsZV9fZXJyb3JzcQB+ACBMAAd2ZXJzaW9ucQB+AB94cHBwdAACRFRwcHQACjA5LjA4LjIwMjFwcH5yACNjb20uZ2VuaW9zLmNvcmUucmVzZWFyY2guVGltZUZpbHRlcgAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABE5PTkV0AAowOS4wOC4yMDIzcHhzcQB+ABsAAAAAdwQAAAAAeHQAAHBwdAAJIkxpbmEgRS4icHBwc3EAfgAbAAAAAHcEAAAAAHhzcgAnY29tLmdlbmlvcy5jb3JlLnJlc2VhcmNoLlNlYXJjaFNldHRpbmdzAAAAAAAAAAECAAZJAAhjYWNoZU1heEkAA21heEkACXNob3dUaHVtYkwACGhpdFN0eWxlcQB+AANMAAVvcmRlcnEAfgADTAAEc29ydHEAfgADeHAAAADIAAAAHgAAAAB0AAlmcmFnbWVudHNwcQB+ACx+cgAkY29tLmdlbmlvcy5mYXpQb3J0YWwuRmF6UG9ydGFsU2VhcmNoAAAAAAAAAAASAAB4cQB+ACd0AApGQVpfQVJDSElWc3IAGmphdmEudXRpbC5BcnJheXMkQXJyYXlMaXN02aQ8vs2IBtICAAFbAAFhdAATW0xqYXZhL2xhbmcvT2JqZWN0O3hwdXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAEHQAFEZBWkVfX2ZhemVpbl84ODMzMTUydAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY4ODkwNzcxdAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY5NDc2MTQxdAAWRkFaTl9fMjAyMzA0MDVfODgwMjczNnQAFEZBWkVfX2ZhemVpbl84ODAyNzM2dAAeRkFaX19GRDEyMDIyMTEwOTUwMDAyMzUyNTUwMzQ1dAAWRkFaTl9fMjAyMjExMDhfODQ0NTg2MXQAFkZBWk5fXzIwMjIwNzI5XzgyMDYxMTJ0AB5GQVpfX0ZEMjIwMjIwNzI5NTAwMDE5MzU1Nzk2MjB0ABRGQVpFX19mYXplaW5fODIwNjExMnQAF0ZBWl9fRkQyMjAyMTA5MjQ2Mjk4NDY4dAAWRkFaTl9fMjAyMTA5MjNfNzU1MTEyN3QAFkZBWk5fXzIwMjEwOTE4Xzc1NDM5MTd0ABdGQVpfX0ZEMTIwMjEwOTA5NjI5MzYxOXQAFkZBWk5fXzIwMjEwOTA4Xzc1Mjc1MTN0ABRGQVpFX19mYXplaW5fNzUyNzUxM3Bwc3EAfgA1dXEAfgA4AAAAEHQAFEZBWkVfX2ZhemVpbl84ODMzMTUydAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY4ODkwNzcxdAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY5NDc2MTQxdAAWRkFaTl9fMjAyMzA0MDVfODgwMjczNnQAFEZBWkVfX2ZhemVpbl84ODAyNzM2dAAeRkFaX19GRDEyMDIyMTEwOTUwMDAyMzUyNTUwMzQ1dAAWRkFaTl9fMjAyMjExMDhfODQ0NTg2MXQAFkZBWk5fXzIwMjIwNzI5XzgyMDYxMTJ0AB5GQVpfX0ZEMjIwMjIwNzI5NTAwMDE5MzU1Nzk2MjB0ABRGQVpFX19mYXplaW5fODIwNjExMnQAF0ZBWl9fRkQyMjAyMTA5MjQ2Mjk4NDY4dAAWRkFaTl9fMjAyMTA5MjNfNzU1MTEyN3QAFkZBWk5fXzIwMjEwOTE4Xzc1NDM5MTd0ABdGQVpfX0ZEMTIwMjEwOTA5NjI5MzYxOXQAFkZBWk5fXzIwMjEwOTA4Xzc1Mjc1MTN0ABRGQVpFX19mYXplaW5fNzUyNzUxMw=="]);
+jQi('f_c0').jasty("Link", "init", [{"onClick":"backClicked", "visible":true, "id":"f.c0", "clazz":"back-link"}]);
+jQi('f_c1').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZE__fazein_8833152", "id":"f.c1"}]);
+jQi('f_c2').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZE__fazein_8833152", "id":"f.c2"}]);
+jQi('f_c3').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c3", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_simi00').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi00", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi10').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi10", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi20').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi20", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi30').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi30", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi40').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi40", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi50').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch0", "checked":false, "disabled":false, "id":"f.simi50", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi_search_0').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"0", "id":"f.simi_search_0", "text":"Suchen"}]);
+jQi('f_c4').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD12023040650002968890771", "id":"f.c4"}]);
+jQi('f_c5').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD12023040650002968890771", "id":"f.c5"}]);
+jQi('f_c6').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c6", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c7').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD12023040650002968890771", "id":"f.c7", "clazz":"box-pdf-article"}]);
+jQi('f_c8').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD12023040650002968890771", "id":"f.c8", "clazz":"box-pdf-whole"}]);
+jQi('f_simi01').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch1", "checked":false, "disabled":false, "id":"f.simi01", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi11').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch1", "checked":false, "disabled":false, "id":"f.simi11", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi21').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch1", "checked":false, "disabled":false, "id":"f.simi21", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi31').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch1", "checked":false, "disabled":false, "id":"f.simi31", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi41').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch1", "checked":false, "disabled":false, "id":"f.simi41", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi_search_1').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"1", "id":"f.simi_search_1", "text":"Suchen"}]);
+jQi('f_c9').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD12023040650002969476141", "id":"f.c9"}]);
+jQi('f_c10').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD12023040650002969476141", "id":"f.c10"}]);
+jQi('f_c11').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c11", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c12').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD12023040650002969476141", "id":"f.c12", "clazz":"box-pdf-article"}]);
+jQi('f_c13').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD12023040650002969476141", "id":"f.c13", "clazz":"box-pdf-whole"}]);
+jQi('f_simi02').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch2", "checked":false, "disabled":false, "id":"f.simi02", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi12').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch2", "checked":false, "disabled":false, "id":"f.simi12", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi_search_2').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"2", "id":"f.simi_search_2", "text":"Suchen"}]);
+jQi('f_c14').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20230405_8802736", "id":"f.c14"}]);
+jQi('f_c15').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20230405_8802736", "id":"f.c15"}]);
+jQi('f_c16').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c16", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c17').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZE__fazein_8802736", "id":"f.c17"}]);
+jQi('f_c18').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZE__fazein_8802736", "id":"f.c18"}]);
+jQi('f_c19').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c19", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_simi04').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi04", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi14').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi14", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi24').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi24", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi34').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi34", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi44').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi44", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi54').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi54", "value":"\"Linksradikalismus\".DE."}]);
+jQi('f_simi64').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch4", "checked":false, "disabled":false, "id":"f.simi64", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi_search_4').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"4", "id":"f.simi_search_4", "text":"Suchen"}]);
+jQi('f_c20').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD12022110950002352550345", "id":"f.c20"}]);
+jQi('f_c21').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD12022110950002352550345", "id":"f.c21"}]);
+jQi('f_c22').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c22", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c23').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD12022110950002352550345", "id":"f.c23", "clazz":"box-pdf-article"}]);
+jQi('f_c24').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD12022110950002352550345", "id":"f.c24", "clazz":"box-pdf-whole"}]);
+jQi('f_simi05').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch5", "checked":false, "disabled":false, "id":"f.simi05", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi15').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch5", "checked":false, "disabled":false, "id":"f.simi15", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi25').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch5", "checked":false, "disabled":false, "id":"f.simi25", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi35').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch5", "checked":false, "disabled":false, "id":"f.simi35", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi45').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch5", "checked":false, "disabled":false, "id":"f.simi45", "value":"\"Brandstiftung\".DE."}]);
+jQi('f_simi_search_5').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"5", "id":"f.simi_search_5", "text":"Suchen"}]);
+jQi('f_c25').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20221108_8445861", "id":"f.c25"}]);
+jQi('f_c26').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20221108_8445861", "id":"f.c26"}]);
+jQi('f_c27').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c27", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c28').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20220729_8206112", "id":"f.c28"}]);
+jQi('f_c29').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20220729_8206112", "id":"f.c29"}]);
+jQi('f_c30').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c30", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c31').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD22022072950001935579620", "id":"f.c31"}]);
+jQi('f_c32').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD22022072950001935579620", "id":"f.c32"}]);
+jQi('f_c33').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c33", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c34').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD22022072950001935579620", "id":"f.c34", "clazz":"box-pdf-article"}]);
+jQi('f_c35').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD22022072950001935579620", "id":"f.c35", "clazz":"box-pdf-whole"}]);
+jQi('f_simi08').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch8", "checked":false, "disabled":false, "id":"f.simi08", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi18').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch8", "checked":false, "disabled":false, "id":"f.simi18", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi28').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch8", "checked":false, "disabled":false, "id":"f.simi28", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi38').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch8", "checked":false, "disabled":false, "id":"f.simi38", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi48').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch8", "checked":false, "disabled":false, "id":"f.simi48", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi_search_8').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"8", "id":"f.simi_search_8", "text":"Suchen"}]);
+jQi('f_c36').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZE__fazein_8206112", "id":"f.c36"}]);
+jQi('f_c37').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZE__fazein_8206112", "id":"f.c37"}]);
+jQi('f_c38').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c38", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_simi09').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi09", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi19').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi19", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi29').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi29", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi39').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi39", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi49').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi49", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi59').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi59", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi69').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch9", "checked":false, "disabled":false, "id":"f.simi69", "value":"\"Linksradikalismus\".DE."}]);
+jQi('f_simi_search_9').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"9", "id":"f.simi_search_9", "text":"Suchen"}]);
+jQi('f_c39').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD2202109246298468", "id":"f.c39"}]);
+jQi('f_c40').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD2202109246298468", "id":"f.c40"}]);
+jQi('f_c41').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c41", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c42').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD2202109246298468", "id":"f.c42", "clazz":"box-pdf-article"}]);
+jQi('f_c43').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD2202109246298468", "id":"f.c43", "clazz":"box-pdf-whole"}]);
+jQi('f_simi010').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi010", "value":"\"Sachsen\".1F."}]);
+jQi('f_simi110').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi110", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi210').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi210", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi310').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi310", "value":"\"Linksradikalismus\".DE."}]);
+jQi('f_simi410').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi410", "value":"\"Demonstrationen\".DE. \"Grundsätzliches\".DE."}]);
+jQi('f_simi510').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi510", "value":"\"Einzelne Parlamentsausschüsse\".DE."}]);
+jQi('f_simi610').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi610", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi710').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi710", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi810').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch10", "checked":false, "disabled":false, "id":"f.simi810", "value":"\"Innenausschuß\".AX."}]);
+jQi('f_simi_search_10').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"10", "id":"f.simi_search_10", "text":"Suchen"}]);
+jQi('f_c44').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20210923_7551127", "id":"f.c44"}]);
+jQi('f_c45').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20210923_7551127", "id":"f.c45"}]);
+jQi('f_c46').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c46", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c47').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20210918_7543917", "id":"f.c47"}]);
+jQi('f_c48').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20210918_7543917", "id":"f.c48"}]);
+jQi('f_c49').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c49", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c50').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZ__FD1202109096293619", "id":"f.c50"}]);
+jQi('f_c51').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZ__FD1202109096293619", "id":"f.c51"}]);
+jQi('f_c52').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c52", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c53').jasty("Link", "init", [{"onClick":"attachmentPdfArticleClicked", "visible":true, "data":"FAZ__FD1202109096293619", "id":"f.c53", "clazz":"box-pdf-article"}]);
+jQi('f_c54').jasty("Link", "init", [{"onClick":"attachmentPdfWholeClicked", "visible":true, "data":"FAZ__FD1202109096293619", "id":"f.c54", "clazz":"box-pdf-whole"}]);
+jQi('f_simi013').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi013", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi113').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi113", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi213').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi213", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi313').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi313", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi413').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi413", "value":"\"Linksradikalismus\".DE."}]);
+jQi('f_simi513').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi513", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi613').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch13", "checked":false, "disabled":false, "id":"f.simi613", "value":"\"Bildung krimineller Vereinigungen\".DE."}]);
+jQi('f_simi_search_13').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"13", "id":"f.simi_search_13", "text":"Suchen"}]);
+jQi('f_c55').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZN__20210908_7527513", "id":"f.c55"}]);
+jQi('f_c56').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZN__20210908_7527513", "id":"f.c56"}]);
+jQi('f_c57').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c57", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_c58').jasty("Link", "init", [{"onClick":"literatureCitaviExportClicked", "visible":true, "data":"FAZE__fazein_7527513", "id":"f.c58"}]);
+jQi('f_c59').jasty("Link", "init", [{"onClick":"literatureEndNoteExportClicked", "visible":true, "data":"FAZE__fazein_7527513", "id":"f.c59"}]);
+jQi('f_c60').jasty("Link", "init", [{"onClick":"printCurrentDoc:client", "visible":true, "id":"f.c60", "text":"Drucken", "clazz":"box-print"}]);
+jQi('f_simi015').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi015", "value":"\"Deutschland\".1F."}]);
+jQi('f_simi115').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi115", "value":"\"Prozeß\".CC."}]);
+jQi('f_simi215').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi215", "value":"\"Innere Sicherheit\".CC."}]);
+jQi('f_simi315').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi315", "value":"\"Linksradikalismus\".DE."}]);
+jQi('f_simi415').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi415", "value":"\"Straftaten gegen Leben und Gesundheit\".DE. \"Körperverletzung\".DE."}]);
+jQi('f_simi515').jasty("CheckBoxGroup", "init", [{"visible":true, "name":"f.simiSearch15", "checked":false, "disabled":false, "id":"f.simi515", "value":"\"Straftaten von Linksextremisten\".DE."}]);
+jQi('f_simi_search_15').jasty("Button", "init", [{"onClick":"simiSearchClicked", "visible":true, "data":"15", "id":"f.simi_search_15", "text":"Suchen"}]);
+jQi('f_c61').jasty("Link", "init", [{"onClick":"backClicked", "visible":true, "id":"f.c61", "clazz":"back-link"}]);
+jQi('f').jasty("FazPortalDocumentForm", "afterInit", []);
+jQi('f').jasty("FazPortalDocumentForm", "update", ["rO0ABXNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5GYXpQb3J0YWxEb2N1bWVudEZvcm0AAAAAAAAAAQIABloADXBheW1lbnROZWVkZWRMAAluYXZpZ2F0b3J0ACZMY29tL2dlbmlvcy9mYXpQb3J0YWwvUmVzdWx0TmF2aWdhdG9yO0wADnJlc3VsdEJhY2tGb3JtdAAoTGNvbS9nZW5pb3MvZmF6UG9ydGFsL0ZhelBvcnRhbEJhc2VGb3JtO0wAFnNob3dFeHRyYURpYWxvZ01lc3NhZ2V0ABJMamF2YS9sYW5nL1N0cmluZztMAAV0b2tlbnEAfgADTAAEdWlkc3QAEExqYXZhL3V0aWwvTGlzdDt4cgAmY29tLmdlbmlvcy5mYXpQb3J0YWwuRmF6UG9ydGFsQmFzZUZvcm0AAAAAAAAAAQIAAHhyABljb20uZ2VuaW9zLmphc3R5LkJhc2VGb3JtAAAAAAAAAAECAAFMAA5yZW5kZXJpbmdTdHlsZXEAfgADeHIAE2NvbS5qYXN0eS5jb3JlLkZvcm0AAAAAAAAAAQIAAkkAE2xhc3RBc3NpZ25lZENoaWxkSWRMAAZiYXNlSWRxAH4AA3hyABhjb20uamFzdHkuY29yZS5Db21wb25lbnQAAAAAAAAAAQIACFoAB3Zpc2libGVMAAVjbGF6enEAfgADTAAEZGF0YXEAfgADTAAFZGF0YTJxAH4AA0wABWRhdGEzcQB+AANMAA5kYXRhQXR0cmlidXRlc3QAD0xqYXZhL3V0aWwvTWFwO0wABXN0eWxlcQB+AANMAAV0aXRsZXEAfgADeHIAHWNvbS5qYXN0eS5jb3JlLkNvbXBvbmVudFByb3h5AAAAAAAAAAECAAFMAAJpZHEAfgADeHB0AAFmAXBwcHBwcHAAAAA+cQB+AAxwAHNyACpjb20uZ2VuaW9zLmZhelBvcnRhbC5TZWFyY2hSZXN1bHROYXZpZ2F0b3IAAAAAAAAAAQIAAHhwc3IAKGNvbS5nZW5pb3MuZmF6UG9ydGFsLkZhelBvcnRhbFNlYXJjaEZvcm0AAAAAAAAAAQIAB1oAEmVtcHR5U2VhcmNoQWxsb3dlZFoADGV4dGVuZGVkTW9kZUwAEmF0dGFjaG1lbnREZWxpdmVyeXQAH0xjb20vZ2VuaW9zL2Zhei9BdHRhY2htZW50SW5mbztMAAtzZWFyY2hRdWVyeXQAJkxjb20vZ2VuaW9zL2NvcmUvcmVzZWFyY2gvU2VhcmNoUXVlcnk7TAAOc2VhcmNoU2V0dGluZ3N0AClMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1NlYXJjaFNldHRpbmdzO0wACnNlYXJjaFR5cGV0ACZMY29tL2dlbmlvcy9mYXpQb3J0YWwvRmF6UG9ydGFsU2VhcmNoO0wADHNlbGVjdGVkRG9jc3EAfgAEeHEAfgAFcAFwcHBwcHBwAAAAAHBwAABwc3IAJGNvbS5nZW5pb3MuY29yZS5yZXNlYXJjaC5TZWFyY2hRdWVyeQAAAAAAAAABAgAXWgAPYXV0b21hdGljU2VhcmNoWgAVY2FuVXNlUHJveGltaXR5U2VhcmNoWgAKZGJTZWxlY3RlZFoAEmVtcHR5U2VhcmNoQWxsb3dlZEkABm9mZnNldEoADHNlYXJjaE1hc2tJZFoAGXNlYXJjaE9ubHlJbkFic3RyYWN0RmllbGRaABZzZWFyY2hPbmx5SW5UaXRsZUZpZWxkSQAEc2l6ZVoAD3dpdGhUaW1lRmlsdGVyc0wACmN1c3RvbVNvcnRxAH4AA0wACmRiU2hvcnRjdXRxAH4AA0wADGVmZmVjdGl2ZURic3EAfgAETAAGZmllbGRzcQB+AARMAAdmaWx0ZXJzcQB+AARMAAtmaXhlZEZpbHRlcnEAfgADTAANcmVtb3RlU3VnZ2VzdHEAfgADTAARc2VhcmNoUmVzdHJpY3Rpb250ADhMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1NlYXJjaFF1ZXJ5JFNlYXJjaFJlc3RyaWN0aW9uO0wACnNlYXJjaFRleHRxAH4AA0wAFnNlbGVjdGVkTmF2aWdhdGlvblBhdGhxAH4AA0wADHNwZWNpYWxJbmRleHQAJ0xjb20vZ2VuaW9zL2VsYXN0aWNzZWFyY2gvRWxhc3RpY0luZGV4O0wABnVzZXJJZHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wACHpGaWx0ZXJzcQB+AAR4cAAAAAAAAAA8AAAAAAAAAAAAAAAAAAoBcHQAU0ZBWixGQVpULEZBWkgsRkFTLEZBU1QsRkFTQSxSTU8sUk1PQSxGQVpNLEZBTVQsRkFaTixGQVcsRkFNLEZBUSxGQVpFLEZBRU0sRkFaRyxGQVpQc3IAE2phdmEudXRpbC5BcnJheUxpc3R4gdIdmcdhnQMAAUkABHNpemV4cAAAAAB3BAAAAAB4c3EAfgAbAAAAAXcEAAAAAXNyACdjb20uZ2VuaW9zLmNvcmUucmVzZWFyY2guRGF0ZVJhbmdlRmllbGQAAAAAAAAAAQIABkwACGZyb21EYXRlcQB+AANMAAJpZHQAEExqYXZhL2xhbmcvTG9uZztMADJvcmdfZ3JhaWxzX2RhdGFzdG9yZV9nb3JtX0dvcm1WYWxpZGF0ZWFibGVfX2Vycm9yc3QAJ0xvcmcvc3ByaW5nZnJhbWV3b3JrL3ZhbGlkYXRpb24vRXJyb3JzO0wACnRpbWVGaWx0ZXJ0ACVMY29tL2dlbmlvcy9jb3JlL3Jlc2VhcmNoL1RpbWVGaWx0ZXI7TAAGdG9EYXRlcQB+AANMAAd2ZXJzaW9ucQB+AB94cgAkY29tLmdlbmlvcy5jb3JlLnJlc2VhcmNoLlNlYXJjaEZpZWxkAAAAAAAAAAECAAVMAAJpZHEAfgAfTAAOaW5wdXRFbGVtZW50SWRxAH4AH0wABG5hbWVxAH4AA0wAMm9yZ19ncmFpbHNfZGF0YXN0b3JlX2dvcm1fR29ybVZhbGlkYXRlYWJsZV9fZXJyb3JzcQB+ACBMAAd2ZXJzaW9ucQB+AB94cHBwdAACRFRwcHQACjA5LjA4LjIwMjFwcH5yACNjb20uZ2VuaW9zLmNvcmUucmVzZWFyY2guVGltZUZpbHRlcgAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABE5PTkV0AAowOS4wOC4yMDIzcHhzcQB+ABsAAAAAdwQAAAAAeHQAAHBwdAAJIkxpbmEgRS4icHBwc3EAfgAbAAAAAHcEAAAAAHhzcgAnY29tLmdlbmlvcy5jb3JlLnJlc2VhcmNoLlNlYXJjaFNldHRpbmdzAAAAAAAAAAECAAZJAAhjYWNoZU1heEkAA21heEkACXNob3dUaHVtYkwACGhpdFN0eWxlcQB+AANMAAVvcmRlcnEAfgADTAAEc29ydHEAfgADeHAAAADIAAAAHgAAAAB0AAlmcmFnbWVudHNwcQB+ACx+cgAkY29tLmdlbmlvcy5mYXpQb3J0YWwuRmF6UG9ydGFsU2VhcmNoAAAAAAAAAAASAAB4cQB+ACd0AApGQVpfQVJDSElWc3IAGmphdmEudXRpbC5BcnJheXMkQXJyYXlMaXN02aQ8vs2IBtICAAFbAAFhdAATW0xqYXZhL2xhbmcvT2JqZWN0O3hwdXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAEHQAFEZBWkVfX2ZhemVpbl84ODMzMTUydAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY4ODkwNzcxdAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY5NDc2MTQxdAAWRkFaTl9fMjAyMzA0MDVfODgwMjczNnQAFEZBWkVfX2ZhemVpbl84ODAyNzM2dAAeRkFaX19GRDEyMDIyMTEwOTUwMDAyMzUyNTUwMzQ1dAAWRkFaTl9fMjAyMjExMDhfODQ0NTg2MXQAFkZBWk5fXzIwMjIwNzI5XzgyMDYxMTJ0AB5GQVpfX0ZEMjIwMjIwNzI5NTAwMDE5MzU1Nzk2MjB0ABRGQVpFX19mYXplaW5fODIwNjExMnQAF0ZBWl9fRkQyMjAyMTA5MjQ2Mjk4NDY4dAAWRkFaTl9fMjAyMTA5MjNfNzU1MTEyN3QAFkZBWk5fXzIwMjEwOTE4Xzc1NDM5MTd0ABdGQVpfX0ZEMTIwMjEwOTA5NjI5MzYxOXQAFkZBWk5fXzIwMjEwOTA4Xzc1Mjc1MTN0ABRGQVpFX19mYXplaW5fNzUyNzUxM3Bwc3EAfgA1dXEAfgA4AAAAEHQAFEZBWkVfX2ZhemVpbl84ODMzMTUydAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY4ODkwNzcxdAAeRkFaX19GRDEyMDIzMDQwNjUwMDAyOTY5NDc2MTQxdAAWRkFaTl9fMjAyMzA0MDVfODgwMjczNnQAFEZBWkVfX2ZhemVpbl84ODAyNzM2dAAeRkFaX19GRDEyMDIyMTEwOTUwMDAyMzUyNTUwMzQ1dAAWRkFaTl9fMjAyMjExMDhfODQ0NTg2MXQAFkZBWk5fXzIwMjIwNzI5XzgyMDYxMTJ0AB5GQVpfX0ZEMjIwMjIwNzI5NTAwMDE5MzU1Nzk2MjB0ABRGQVpFX19mYXplaW5fODIwNjExMnQAF0ZBWl9fRkQyMjAyMTA5MjQ2Mjk4NDY4dAAWRkFaTl9fMjAyMTA5MjNfNzU1MTEyN3QAFkZBWk5fXzIwMjEwOTE4Xzc1NDM5MTd0ABdGQVpfX0ZEMTIwMjEwOTA5NjI5MzYxOXQAFkZBWk5fXzIwMjEwOTA4Xzc1Mjc1MTN0ABRGQVpFX19mYXplaW5fNzUyNzUxMw=="]);
+}) </script><script> jQuery(function(){
+jQi('f').jasty("FazPortalDocumentForm", "displayHash", []);
+}) </script>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="faz-footer">
+		
+			
+
+<div>
+	<div>
+		<p>Diese Anwendung ist ein Produkt des Frankfurter Allgemeine Archivs.</p>
+
+		<p>Nutzungshinweise: Artikel dürfen nur für den eigenen Gebrauch abgerufen werden. Eine Vervielfältigung der Artikel, die Weitergabe an Dritte und eine unlizenzierte Veröffentlichung sind untersagt. Da uns der Schutz unserer journalistisch hochwertigen Inhalte wichtig ist, setzen wir technische Schutzmaßnahmen ein, die beim Download unverhältnismäßig großer Artikelmengen und einer missbräuchlichen Nutzung eine Sperrung des Zugangs auslösen.</p>
+
+		<p>Sie können in verschiedenen Datenbanken des F.A.Z.-Archivs recherchieren. Wenn Sie vorhaben, F.A.Z.-Artikeldaten im Rahmen Ihrer wissenschaftlichen Forschung, Ihres Studiums oder zu Trainingszwecken zu verwenden und Rückfragen hierzu haben, stehen wir Ihnen jederzeit gern zur Verfügung. <a
+				href="https://www.faz-rechte.de/anwendungen-services/text-und-datamining/" target="_blank">Bitte sprechen Sie uns einfach an und schildern uns Ihr Anliegen</a>.</p>
+
+		<p><a href="/faz-portal/drupal?content=AGB" target="_blank">Allgemeine Geschäftsbedingungen der Frankfurter Allgemeinen Zeitung GmbH für die Bereitstellung von Presseartikeln in digitaler Form.</a></p>
+	</div>
+
+	<div>
+		<div class="item">
+			<a href="/faz-portal/drupal?content=SUCH_HILFE" target="_blank">Suchhilfen</a>
+		</div>
+
+		<div class="item">
+			<a href="/faz-portal/drupal?content=IMPRESSUM" target="_blank">Impressum</a>
+		</div>
+
+		<div class="item">
+			<a href="/faz-portal/drupal?content=DATENSCHUTZ" target="_blank">Datenschutz</a>
+		</div>
+
+		
+		
+			<div class="info-box">
+				<strong>Ihre Nutzungsmöglichkeiten:</strong> <br/>
+				
+					Frankfurter Allgemeine Zeitung ab 1993 <br/>
+				
+					Seitenarchiv <br/>
+				
+					Nutzerkonto <br/>
+				
+			</div>
+		
+	</div>
+</div>
+
+<div class="footer-logo-table">
+	<div class="footer-logo-row">
+		<a title="Frankfurter Allgemeine Zeitung"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Zeitung" src="/assets/fazPortal/FAZ_Footer-16d9ea65203ea1c97b293054a9706830.svg"/></a>
+		<a title="Frankfurter Allgemeine Sonntagszeitung"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Sonntagszeitung" src="/assets/fazPortal/FAS_Footer-c7b00b502a5235ab0f3f5ecde31a7c9f.svg"/>
+		</a>
+		<a title="Frankfurter Allgemeine FAZ.NET"><img class="faz-footer-logo" alt="Frankfurter Allgemeine FAZ.NET" src="/assets/fazPortal/FAZNET_Footer-7180d44b3a3cc6f8faf6a56bd994fd59.svg"/></a>
+		<a title="Frankfurter Allgemeine Woche"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Woche" src="/assets/fazPortal/FAZWOCHE_Footer-e3e06f6e328a4e0f8ee0230728c97ddd.svg"/></a>
+	</div>
+
+	<div class="footer-logo-row">
+		<a title="Frankfurter Allgemeine Magazin"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Magazin"
+													   src="/assets/fazPortal/FazPortalPagesForm_logo_Magazin-3ad091f6cc8c32af84d5b7298e327088.svg"/></a>
+		<a title="Frankfurter Allgemeine Quartely"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Quartely"
+														src="/assets/fazPortal/FazPortalPagesForm_logo_Quarterly-7d2a4663ae882243b19656c7249bfac2.svg"/></a>
+		<a title="Frankfurter Allgemeine Metropol"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Metropol"
+														src="/assets/fazPortal/FazPortalPagesForm_logo_Metropol-fe39ebc94ba8317c838a3a4e7062363e.svg"/></a>
+		<a title="Frankfurter Allgemeine Einspruch"><img class="faz-footer-logo" alt="Frankfurter Allgemeine Einspruch" src="/assets/fazPortal/FAZ_Einspruch-7b8be08cac4351c5acc18dc9405957ea.svg"/></a>
+	</div>
+</div>
+		
+	</div>
+
+</div>
+
+<div class='jasty-blocker full' tabindex="0" onmouseover='return false;' oncontextmenu='return false;' onclick='return false;' onmousedown='return false;' onmouseup='return false;'
+	 ondblclick='return false;' onkeydown='return false;' onkeyup='return false;' onkeypress='return false;'>
+	<div class='background'></div>
+</div>
+
+</body>
+</html>
